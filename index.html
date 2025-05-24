@@ -138,7 +138,7 @@
 
                 <div class="mt-8 mb-8 mx-auto max-w-4xl">
                     <div class="video-container">
-                        <iframe src="https://youtu.be/wYpyiog8Tpc?si=Pi4NMcIzhtIx60-2" 
+                        <iframe src="https://www.youtube.com/embed/wYpyiog8Tpc" 
                                 title="YouTube video player" 
                                 frameborder="0" 
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -287,7 +287,7 @@
                     <div class="card p-6">
                         <h3 class="text-lg font-semibold text-cyan-700" data-lang-key="certsTitle">Certificaciones y Otros</h3>
                          <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1" data-lang-key="certsList">
-                            <li>Certificado Inglés C2 Nivel Proficient (EF SET): <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener noreferrer" class="underline hover:text-cyan-800">Ver Certificado</a></li>
+                            <li>Certificado Inglés C2 Nivel Proficient (EF SET): <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener noreferrer" class="underline hover:text-cyan-800">Certificado EFSET</a></li>
                             <li>Carnet de manipulación de alimentos (Agencia Gubernamental de Control, CABA)</li>
                         </ul>
                     </div>
@@ -422,7 +422,6 @@
     </main>
 
     <footer class="bg-slate-800 text-slate-300 py-8 text-center">
-        <p data-lang-key="footerCopyright">© <span id="currentYear"></span> Adrián Betancourt. Todos los derechos reservados.</p>
         <p class="text-sm mt-1" data-lang-key="footerDesign">Diseñado con pasión en Buenos Aires.</p>
         <p class="text-sm mt-1" data-lang-key="footerPhone">Teléfono: +54 9 11 3574 7987</p>
     </footer>
@@ -537,7 +536,7 @@
                 `,
                 certsTitle: "Certificaciones y Otros",
                 certsList: `
-                    <li>Certificado Inglés C2 Nivel Proficient (EF SET): <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener noreferrer" class="underline hover:text-cyan-800">Ver Certificado</a></li>
+                    <li>Certificado Inglés C2 Nivel Proficient (EF SET): <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener noreferrer" class="underline hover:text-cyan-800">Certificado EFSET</a></li>
                     <li>Carnet de manipulación de alimentos (Agencia Gubernamental de Control, CABA)</li>
                 `,
                 viewCert: "Ver Certificado",
@@ -556,7 +555,7 @@
                 contactIntro: "¡Hablemos! Estoy disponible para discutir oportunidades y proyectos.",
                 sendEmailBtn: "📧 Enviar Email",
                 connectLinkedInBtn: "Conectar en LinkedIn",
-                contactPhone: "Teléfono:",
+                contactPhone: "Teléfono: +54 9 11 3574 7987", // Updated with phone number
                 footerCopyright: "© <span id='currentYear'></span> Adrián Betancourt. Todos los derechos reservados.",
                 footerDesign: "Diseñado con pasión en Buenos Aires.",
                 footerPhone: "Teléfono: +54 9 11 3574 7987" // Added phone number to footer
@@ -594,7 +593,7 @@
                     <li>Audio technician and assistant audio engineer for live TV music events, streaming, and private concerts.</li>
                     <li>Composition and production of music and sound design for marketing videos, short films, radio ads, and documentaries.</li>
                     <li>Audio editing, recording, complete post-production (dialogue editing, ADR, virtual Foley, synchronization), cleaning, and restoration for videos, radio, and podcasts.</li>
-                    <li>Coordination of multidisciplinary teams and logistical management of technical equipment for events and broadcasts.</li>
+                    <li>Coordinación de equipos multidisciplinarios y gestión logística de equipos técnicos para eventos y transmisiones.</li>
                 `,
                 jobFreelanceFilmTitle: "Freelance Sound Designer and Music Composer",
                 jobFreelanceFilmDuration: "Film Projects | 2020 - Present",
@@ -668,7 +667,7 @@
                 `,
                 certsTitle: "Certifications and Others",
                 certsList: `
-                    <li>C2 Proficient English Certificate (EF SET): <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener noreferrer" class="underline hover:text-cyan-800">View Certificate</a></li>
+                    <li>C2 Proficient English Certificate (EFSET): <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener noreferrer" class="underline hover:text-cyan-800">EFSET Certified</a></li>
                     <li>Food Handler's Card (Government Agency of Control, CABA)</li>
                 `,
                 viewCert: "View Certificate",
@@ -687,8 +686,7 @@
                 contactIntro: "Let's talk! I am available to discuss opportunities and projects.",
                 sendEmailBtn: "📧 Send Email",
                 connectLinkedInBtn: "Connect on LinkedIn",
-                contactPhone: "Phone:",
-                footerCopyright: "© <span id='currentYear'></span> Adrián Betancourt. All rights reserved.",
+                contactPhone: "Phone: +54 9 11 3574 7987", // Updated with phone number
                 footerDesign: "Designed with passion in Buenos Aires.",
                 footerPhone: "Phone: +54 9 11 3574 7987" // Added phone number to footer
             }
@@ -702,7 +700,7 @@
                 const key = element.dataset.langKey;
                 if (content[lang][key]) {
                     // Check if the content is HTML (e.g., for list items)
-                    if (element.tagName === 'UL' || element.tagName === 'LI') {
+                    if (element.tagName === 'UL' || element.tagName === 'LI' || element.classList.contains('tag')) {
                         element.innerHTML = content[lang][key];
                     } else {
                         element.textContent = content[lang][key];
@@ -769,8 +767,8 @@
             });
         });
 
-        // Set current year in footer
-        document.getElementById('currentYear').textContent = new Date().getFullYear();
+        // Set current year in footer (removed as per user request)
+        // document.getElementById('currentYear').textContent = new Date().getFullYear();
 
         // Active nav link highlighting on scroll (simplified)
         const sections = document.querySelectorAll('main section[id]');
