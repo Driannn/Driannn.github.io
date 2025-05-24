@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adrián Betancourt - Profesional de Audio y Creativo Multimedia</title>
+    <title data-lang-key="pageTitle">Adrián Betancourt - Profesional de Audio y Creativo Multimedia</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,6 +47,37 @@
             font-size: 0.875rem;
             font-weight: 500;
         }
+        .language-toggle {
+            cursor: pointer;
+            padding: 0.5rem 0.75rem;
+            border-radius: 0.375rem;
+            background-color: #e2e8f0; /* bg-slate-200 */
+            color: #475569; /* text-slate-600 */
+            font-weight: 500;
+            transition: background-color 0.2s ease, color 0.2s ease;
+        }
+        .language-toggle.active {
+            background-color: #0891b2; /* bg-cyan-600 */
+            color: white;
+        }
+        /* Responsive video container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 0.5rem; /* Apply rounded corners to the container */
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -57,15 +88,23 @@
                 <div class="flex-shrink-0">
                     <a href="#inicio" class="text-2xl font-bold text-slate-800 hover:text-cyan-600 transition-colors">Adrián Betancourt</a>
                 </div>
-                <nav class="hidden md:flex space-x-6 lg:space-x-8">
-                    <a href="#inicio" class="nav-link text-slate-700 font-medium">Inicio</a>
-                    <a href="#experiencia-audio" class="nav-link text-slate-700 font-medium">Experiencia en Audio</a>
-                    <a href="#experiencia-adicional" class="nav-link text-slate-700 font-medium">Experiencia Adicional</a>
-                    <a href="#habilidades" class="nav-link text-slate-700 font-medium">Habilidades</a>
-                    <a href="#portafolio" class="nav-link text-slate-700 font-medium">Portafolio</a>
-                    <a href="#contacto" class="nav-link text-slate-700 font-medium">Contacto</a>
+                <nav class="hidden md:flex items-center space-x-6 lg:space-x-8">
+                    <a href="#inicio" class="nav-link text-slate-700 font-medium" data-lang-key="navHome">Inicio</a>
+                    <a href="#experiencia-audio" class="nav-link text-slate-700 font-medium" data-lang-key="navAudioExp">Experiencia en Audio</a>
+                    <a href="#experiencia-adicional" class="nav-link text-slate-700 font-medium" data-lang-key="navAddExp">Experiencia Adicional</a>
+                    <a href="#habilidades" class="nav-link text-slate-700 font-medium" data-lang-key="navSkills">Habilidades</a>
+                    <a href="#portafolio" class="nav-link text-slate-700 font-medium" data-lang-key="navPortfolio">Portafolio</a>
+                    <a href="#contacto" class="nav-link text-slate-700 font-medium" data-lang-key="navContact">Contacto</a>
+                    <div class="flex items-center ml-4">
+                        <button id="lang-es" class="language-toggle active" data-lang="es">ES</button>
+                        <button id="lang-en" class="language-toggle ml-2" data-lang="en">EN</button>
+                    </div>
                 </nav>
-                <div class="md:hidden">
+                <div class="md:hidden flex items-center">
+                    <div class="flex items-center mr-4">
+                        <button id="lang-es-mobile" class="language-toggle active" data-lang="es">ES</button>
+                        <button id="lang-en-mobile" class="language-toggle ml-2" data-lang="en">EN</button>
+                    </div>
                     <button id="mobile-menu-button" class="text-slate-700 hover:text-cyan-600 focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
                     </button>
@@ -73,12 +112,12 @@
             </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden bg-slate-50 shadow-lg">
-            <a href="#inicio" class="block py-2 px-4 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-600">Inicio</a>
-            <a href="#experiencia-audio" class="block py-2 px-4 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-600">Experiencia en Audio</a>
-            <a href="#experiencia-adicional" class="block py-2 px-4 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-600">Experiencia Adicional</a>
-            <a href="#habilidades" class="block py-2 px-4 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-600">Habilidades</a>
-            <a href="#portafolio" class="block py-2 px-4 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-600">Portafolio</a>
-            <a href="#contacto" class="block py-2 px-4 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-600">Contacto</a>
+            <a href="#inicio" class="block py-2 px-4 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-600" data-lang-key="navHome">Inicio</a>
+            <a href="#experiencia-audio" class="block py-2 px-4 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-600" data-lang-key="navAudioExp">Experiencia en Audio</a>
+            <a href="#experiencia-adicional" class="block py-2 px-4 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-600" data-lang-key="navAddExp">Experiencia Adicional</a>
+            <a href="#habilidades" class="block py-2 px-4 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-600" data-lang-key="navSkills">Habilidades</a>
+            <a href="#portafolio" class="block py-2 px-4 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-600" data-lang-key="navPortfolio">Portafolio</a>
+            <a href="#contacto" class="block py-2 px-4 text-sm text-slate-700 hover:bg-cyan-50 hover:text-cyan-600" data-lang-key="navContact">Contacto</a>
         </div>
     </header>
 
@@ -86,13 +125,27 @@
 
         <section id="inicio" class="min-h-[calc(100vh-4rem)] flex items-center py-12 md:py-16">
             <div class="w-full text-center md:text-left">
-                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 leading-tight">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold text-slate-900 leading-tight" data-lang-key="heroName">
                     Adrián Betancourt
                 </h1>
-                <p class="mt-4 text-xl sm:text-2xl font-medium text-cyan-600">
+                <p class="mt-4 text-xl sm:text-2xl font-medium text-cyan-600" data-lang-key="heroSubtitle">
                     Profesional de Audio y Creativo Multimedia | Disponible para Desafíos Inmediatos
                 </p>
-                <p class="mt-6 max-w-3xl mx-auto md:mx-0 text-lg text-slate-700">
+
+                <div class="mt-8 mb-8 mx-auto max-w-4xl">
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&controls=0&loop=1&playlist=dQw4w9WgXcQ" 
+                                title="YouTube video player" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                referrerpolicy="strict-origin-when-cross-origin" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                     <p class="mt-4 text-sm text-slate-600" data-lang-key="heroVideoCaption">Video destacado: Demo Reel de Audio para Juegos</p>
+                </div>
+                
+                <p class="mt-6 max-w-3xl mx-auto md:mx-0 text-lg text-slate-700" data-lang-key="heroSummary">
                     Profesional de audio bilingüe (español nativo, inglés C2) con 5 años de experiencia en música y sonido para videojuegos, cine y multimedia. Especializado en postproducción, producción musical e integración de audio (FMOD). Combino mi pasión por el sonido con una sólida experiencia en gestión de proyectos, atención al cliente y una gran adaptabilidad, buscando oportunidades desafiantes e inmediatas donde aplicar mi creatividad y habilidades técnicas.
                 </p>
                 <div class="mt-8 flex flex-col sm:flex-row sm:flex-wrap justify-center md:justify-start gap-3 text-sm">
@@ -107,28 +160,28 @@
                         LinkedIn
                     </a>
                     <a href="https://www.driann.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-4 py-2 border border-slate-300 rounded-md font-medium text-slate-700 bg-white hover:bg-slate-50 transition-colors">
-                        🔗 Portafolio: www.driann.com
+                        🔗 <span data-lang-key="portfolioLinkText">Portafolio: www.driann.com</span>
                     </a>
                 </div>
-                 <p class="mt-4 text-sm text-slate-600">Palermo, CABA, Argentina</p>
+                 <p class="mt-4 text-sm text-slate-600" data-lang-key="heroLocation">Palermo, CABA, Argentina</p>
             </div>
         </section>
 
         <section id="experiencia-audio" class="py-12 md:py-16">
-            <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block">Experiencia en Audio</h2>
-            <p class="mb-8 text-slate-700">Más de 5 años dedicados al diseño sonoro, producción musical y postproducción para diversos proyectos audiovisuales.</p>
+            <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block" data-lang-key="audioExpTitle">Experiencia en Audio</h2>
+            <p class="mb-8 text-slate-700" data-lang-key="audioExpIntro">Más de 5 años dedicados al diseño sonoro, producción musical y postproducción para diversos proyectos audiovisuales.</p>
             
             <div class="mb-6 flex flex-wrap gap-2 border-b border-slate-200">
-                <button class="tab-button py-2 px-4 font-medium text-slate-600 border-b-2 border-transparent hover:border-cyan-500 hover:text-cyan-600 active" data-tab="jefe-audio">Jefe de Audio | Univ. Audiovisual VE</button>
-                <button class="tab-button py-2 px-4 font-medium text-slate-600 border-b-2 border-transparent hover:border-cyan-500 hover:text-cyan-600" data-tab="freelance-cine">Freelance Cine</button>
-                <button class="tab-button py-2 px-4 font-medium text-slate-600 border-b-2 border-transparent hover:border-cyan-500 hover:text-cyan-600" data-tab="freelance-juegos">Freelance Videojuegos</button>
+                <button class="tab-button py-2 px-4 font-medium text-slate-600 border-b-2 border-transparent hover:border-cyan-500 hover:text-cyan-600 active" data-tab="jefe-audio" data-lang-key="tabJefeAudio">Jefe de Audio | Univ. Audiovisual VE</button>
+                <button class="tab-button py-2 px-4 font-medium text-slate-600 border-b-2 border-transparent hover:border-cyan-500 hover:text-cyan-600" data-tab="freelance-cine" data-lang-key="tabFreelanceFilm">Freelance Cine</button>
+                <button class="tab-button py-2 px-4 font-medium text-slate-600 border-b-2 border-transparent hover:border-cyan-500 hover:text-cyan-600" data-tab="freelance-juegos" data-lang-key="tabFreelanceGames">Freelance Videojuegos</button>
             </div>
 
             <div id="tab-content-container">
                 <div id="jefe-audio" class="tab-content card p-6">
-                    <h3 class="text-xl font-semibold text-cyan-700 mb-2">Jefe de Audio en el Vicerrectorado de Producción</h3>
-                    <p class="text-sm text-slate-600 mb-4">Universidad Audiovisual de Venezuela | 2018 - 2024</p>
-                    <ul class="list-disc list-inside space-y-2 text-slate-700">
+                    <h3 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="jobAudioHeadTitle">Jefe de Audio en el Vicerrectorado de Producción</h3>
+                    <p class="text-sm text-slate-600 mb-4" data-lang-key="jobAudioHeadDuration">Universidad Audiovisual de Venezuela | 2018 - 2024</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-700" data-lang-key="jobAudioHeadDuties">
                         <li>Ejecución de diseño de sonido, síntesis de audio y creación de efectos de sonido para múltiples cortometrajes estudiantiles.</li>
                         <li>Técnico de audio y asistente de ingeniería para eventos musicales en TV en vivo, streaming y conciertos.</li>
                         <li>Composición y producción de música y diseño sonoro para videos de marketing, cortometrajes, anuncios de radio y documentales.</li>
@@ -138,10 +191,10 @@
                 </div>
 
                 <div id="freelance-cine" class="tab-content card p-6 hidden">
-                    <h3 class="text-xl font-semibold text-cyan-700 mb-2">Diseñador de Sonido y Compositor Musical Freelance</h3>
-                    <p class="text-sm text-slate-600 mb-4">Proyectos Cinematográficos | 2020 - Presente</p>
-                    <ul class="list-disc list-inside space-y-2 text-slate-700">
-                        <li>Grabación de audio en set, postproducción integral, mezcla de audio Dolby y producción musical para cortometrajes.</li>
+                    <h3 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="jobFreelanceFilmTitle">Diseñador de Sonido y Compositor Musical Freelance</h3>
+                    <p class="text-sm text-slate-600 mb-4" data-lang-key="jobFreelanceFilmDuration">Proyectos Cinematográficos | 2020 - Presente</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-700" data-lang-key="jobFreelanceFilmDuties">
+                        <li>Realización de grabaciones de audio en set, postproducción integral, mezcla de audio Dolby y producción musical para cortometrajes.</li>
                         <li>Edición de diálogos detallada y limpieza de audio para asegurar claridad narrativa.</li>
                         <li>Grabaciones de campo, edición y mezcla de audio, y composición de música original para documentales y podcasts de video.</li>
                         <li>Diseño de sonido completo para un cortometraje galardonado en la 19ª edición del Festival de Cine de Venezuela.</li>
@@ -149,9 +202,9 @@
                 </div>
 
                 <div id="freelance-juegos" class="tab-content card p-6 hidden">
-                    <h3 class="text-xl font-semibold text-cyan-700 mb-2">Diseñador de Sonido y Compositor Musical Freelance</h3>
-                    <p class="text-sm text-slate-600 mb-4">Proyectos de Videojuegos | 2021 - Presente</p>
-                    <ul class="list-disc list-inside space-y-2 text-slate-700">
+                    <h3 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="jobFreelanceGamesTitle">Diseñador de Sonido y Compositor Musical Freelance</h3>
+                    <p class="text-sm text-slate-600 mb-4" data-lang-key="jobFreelanceGamesDuration">Proyectos de Videojuegos | 2021 - Presente</p>
+                    <ul class="list-disc list-inside space-y-2 text-slate-700" data-lang-key="jobFreelanceGamesDuties">
                         <li>Participación en más de 10 game jams, creando activos de audio, produciendo música y utilizando middleware FMOD.</li>
                         <li>Diseño e implementación de efectos de sonido en FMOD para un juego de carreras en Unity durante una game jam.</li>
                         <li>Desarrollo integral (diseño de juego, programación y audio) de 2 prototipos de juegos en game jams (Unity con FMOD, y Godot Engine).</li>
@@ -163,48 +216,48 @@
         </section>
 
         <section id="experiencia-adicional" class="py-12 md:py-16">
-            <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block">Experiencia Adicional</h2>
-            <p class="mb-8 text-slate-700">Roles que demuestran mi adaptabilidad, habilidades de servicio al cliente y disponibilidad inmediata.</p>
+            <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block" data-lang-key="addExpTitle">Experiencia Adicional</h2>
+            <p class="mb-8 text-slate-700" data-lang-key="addExpIntro">Roles que demuestran mi adaptabilidad, habilidades de servicio al cliente y disponibilidad inmediata.</p>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="card p-6">
-                    <h3 class="text-lg font-semibold text-cyan-700">Empleado de Fiambrería</h3>
-                    <p class="text-sm text-slate-500">La Estancia San Francisco | Mayo 2025</p>
-                    <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1">
+                    <h3 class="text-lg font-semibold text-cyan-700" data-lang-key="jobDeliTitle">Empleado de Fiambrería</h3>
+                    <p class="text-sm text-slate-500" data-lang-key="jobDeliDuration">La Estancia San Francisco | Mayo 2025</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1" data-lang-key="jobDeliDuties">
                         <li>Recepción y organización de mercancía, carga de productos.</li>
                         <li>Corte de fiambres y manejo de máquina cortadora.</li>
                         <li>Atención al cliente, empaquetado, desempeño ágil bajo presión.</li>
                     </ul>
                 </div>
                 <div class="card p-6">
-                    <h3 class="text-lg font-semibold text-cyan-700">Cajero / Reponedor</h3>
-                    <p class="text-sm text-slate-500">1440 Drugstore | Marzo - Abril 2025</p>
-                    <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1">
+                    <h3 class="text-lg font-semibold text-cyan-700" data-lang-key="jobCashierTitle">Cajero / Reponedor</h3>
+                    <p class="text-sm text-slate-500" data-lang-key="jobCashierDuration">1440 Drugstore | Marzo - Abril 2025</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1" data-lang-key="jobCashierDuties">
                         <li>Atención al cliente, gestión de cobros, manejo de efectivo.</li>
                         <li>Recepción, reposición y organización de mercancía, control de stock.</li>
                         <li>Mantenimiento del orden y limpieza del local.</li>
                     </ul>
                 </div>
                 <div class="card p-6">
-                    <h3 class="text-lg font-semibold text-cyan-700">Asesor de Ventas Telefónicas</h3>
-                    <p class="text-sm text-slate-500">IBM Motors | Febrero 2025</p>
-                    <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1">
+                    <h3 class="text-lg font-semibold text-cyan-700" data-lang-key="jobSalesTitle">Asesor de Ventas Telefónicas</h3>
+                    <p class="text-sm text-slate-500" data-lang-key="jobSalesDuration">IBM Motors | Febrero 2025</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1" data-lang-key="jobSalesDuties">
                         <li>Gestión de consultas sobre compra/venta de vehículos.</li>
                         <li>Negociación y cierre de operaciones con clientes corporativos.</li>
                         <li>Manejo de múltiples tareas simultáneas (bases de datos, llamadas, emails).</li>
                     </ul>
                 </div>
                 <div class="card p-6">
-                    <h3 class="text-lg font-semibold text-cyan-700">Intérprete Bilingüe (Call Center)</h3>
-                    <p class="text-sm text-slate-500">TNI OUTSOURCING (Remoto) | Nov 2024 - Ene 2025</p>
-                    <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1">
+                    <h3 class="text-lg font-semibold text-cyan-700" data-lang-key="jobInterpreterTitle">Intérprete Bilingüe (Call Center)</h3>
+                    <p class="text-sm text-slate-500" data-lang-key="jobInterpreterDuration">TNI OUTSOURCING (Remoto) | Nov 2024 - Ene 2025</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1" data-lang-key="jobInterpreterDuties">
                         <li>Traducción simultánea inglés-español para llamadas internacionales.</li>
                         <li>Comunicación clara en situaciones de alta demanda, registro de datos.</li>
                     </ul>
                 </div>
                 <div class="card p-6">
-                    <h3 class="text-lg font-semibold text-cyan-700">Profesor Particular de Guitarra</h3>
-                    <p class="text-sm text-slate-500">Autónomo (Venezuela) | 2016 - 2024</p>
-                    <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1">
+                    <h3 class="text-lg font-semibold text-cyan-700" data-lang-key="jobGuitarTeacherTitle">Profesor Particular de Guitarra</h3>
+                    <p class="text-sm text-slate-500" data-lang-key="jobGuitarTeacherDuration">Autónomo (Venezuela) | 2016 - 2024</p>
+                    <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1" data-lang-key="jobGuitarTeacherDuties">
                         <li>Planificación personalizada de clases para +30 alumnos.</li>
                         <li>Manejo de agenda, efectivo y administración de pagos.</li>
                         <li>Comunicación efectiva con padres/tutores sobre progresos.</li>
@@ -214,42 +267,42 @@
         </section>
 
         <section id="habilidades" class="py-12 md:py-16">
-            <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block">Habilidades</h2>
-            <p class="mb-8 text-slate-700">Un conjunto diverso de herramientas y competencias técnicas y blandas.</p>
+            <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block" data-lang-key="skillsTitle">Habilidades</h2>
+            <p class="mb-8 text-slate-700" data-lang-key="skillsIntro">Un conjunto diverso de herramientas y competencias técnicas y blandas.</p>
             <div class="grid md:grid-cols-2 gap-x-8 gap-y-6">
                 <div>
-                    <h3 class="text-xl font-semibold text-cyan-700 mb-3">Software de Audio y Postproducción</h3>
+                    <h3 class="text-xl font-semibold text-cyan-700 mb-3" data-lang-key="skillsAudioSoftwareTitle">Software de Audio y Postproducción</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="tag">Ableton Live</span><span class="tag">Reaper</span><span class="tag">Adobe Audition</span><span class="tag">iZotope RX</span><span class="tag">Dolby Atmos Composer</span><span class="tag">Soundly</span><span class="tag">Spitfire LABS</span>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold text-cyan-700 mb-3">Software Video y Streaming</h3>
+                    <h3 class="text-xl font-semibold text-cyan-700 mb-3" data-lang-key="skillsVideoStreamingTitle">Software Video y Streaming</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="tag">Adobe Premiere Pro</span><span class="tag">Davinci Resolve</span><span class="tag">OBS</span><span class="tag">vMix</span>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold text-cyan-700 mb-3">Desarrollo de Videojuegos</h3>
+                    <h3 class="text-xl font-semibold text-cyan-700 mb-3" data-lang-key="skillsGameDevTitle">Desarrollo de Videojuegos</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="tag">FMOD Studio</span><span class="tag">Unity (C# Básico)</span><span class="tag">Godot Engine (GDScript Intermedio)</span><span class="tag">GitHub</span><span class="tag">Principios de Computer Science</span>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold text-cyan-700 mb-3">Otros Software y Herramientas</h3>
+                    <h3 class="text-xl font-semibold text-cyan-700 mb-3" data-lang-key="skillsOtherToolsTitle">Otros Software y Herramientas</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="tag">Google Workspace</span><span class="tag">Microsoft Office (Excel)</span><span class="tag">Trello</span><span class="tag">Notion</span><span class="tag">Obsidian</span><span class="tag">Sistemas CRM</span><span class="tag">Conocimientos de Cámara</span>
                     </div>
                 </div>
                  <div>
-                    <h3 class="text-xl font-semibold text-cyan-700 mb-3">Idiomas</h3>
+                    <h3 class="text-xl font-semibold text-cyan-700 mb-3" data-lang-key="skillsLanguagesTitle">Idiomas</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="tag">Español (Nativo)</span>
-                        <span class="tag">Inglés (C2 Proficient - <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener noreferrer" class="underline hover:text-cyan-800">Certificado EFSET</a>)</span>
+                        <span class="tag" data-lang-key="langSpanish">Español (Nativo)</span>
+                        <span class="tag" data-lang-key="langEnglish">Inglés (C2 Proficient - <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener noreferrer" class="underline hover:text-cyan-800">Certificado EFSET</a>)</span>
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold text-cyan-700 mb-3">Habilidades Clave y Blandas</h3>
+                    <h3 class="text-xl font-semibold text-cyan-700 mb-3" data-lang-key="skillsSoftSkillsTitle">Habilidades Clave y Blandas</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="tag">Diseño de Sonido</span><span class="tag">Producción Musical</span><span class="tag">Postproducción de Audio</span><span class="tag">Edición de Diálogos</span><span class="tag">Integración de Audio</span><span class="tag">Grabación en Set/Campo</span><span class="tag">Composición</span><span class="tag">Síntesis de Audio</span><span class="tag">Gestión de Proyectos</span><span class="tag">Atención al Cliente</span><span class="tag">Resolución de Problemas</span><span class="tag">Comunicación Efectiva</span><span class="tag">Trabajo en Equipo</span><span class="tag">Organización</span><span class="tag">Aprendizaje Rápido</span><span class="tag">Gestión del Tiempo</span><span class="tag">Trabajo bajo Presión</span>
                     </div>
@@ -259,21 +312,21 @@
         
         <section id="formacion" class="py-12 md:py-16 bg-slate-100 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
             <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block">Formación Complementaria</h2>
-                <p class="mb-8 text-slate-700">Aprendizaje continuo para potenciar mis habilidades.</p>
+                <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block" data-lang-key="trainingTitle">Formación Complementaria</h2>
+                <p class="mb-8 text-slate-700" data-lang-key="trainingIntro">Aprendizaje continuo para potenciar mis habilidades.</p>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="card p-6">
-                        <h3 class="text-lg font-semibold text-cyan-700">Cursos Online (Platzi)</h3>
-                        <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1">
+                        <h3 class="text-lg font-semibold text-cyan-700" data-lang-key="coursesTitle">Cursos Online (Platzi)</h3>
+                        <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1" data-lang-key="coursesList">
                             <li>Curso de Inglés Práctico y Conversacional (2024)</li>
                             <li>Curso de Excel: Fundamentos y Formato de Hojas de Cálculo (2024)</li>
                             <li>Curso de Gestión Efectiva del Tiempo (2023)</li>
                         </ul>
                     </div>
                     <div class="card p-6">
-                        <h3 class="text-lg font-semibold text-cyan-700">Certificaciones y Otros</h3>
-                         <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1">
-                            <li>Certificado Inglés C2 Nivel Proficient (EF SET): <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener noreferrer" class="underline hover:text-cyan-800">Ver Certificado</a></li>
+                        <h3 class="text-lg font-semibold text-cyan-700" data-lang-key="certsTitle">Certificaciones y Otros</h3>
+                         <ul class="mt-2 list-disc list-inside text-sm text-slate-600 space-y-1" data-lang-key="certsList">
+                            <li>Certificado Inglés C2 Nivel Proficient (EF SET): <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener noreferrer" class="underline hover:text-cyan-800" data-lang-key="viewCert">Ver Certificado</a></li>
                             <li>Carnet de manipulación de alimentos (Agencia Gubernamental de Control, CABA)</li>
                         </ul>
                     </div>
@@ -282,51 +335,442 @@
         </section>
 
         <section id="portafolio" class="py-12 md:py-16 text-center">
-            <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block">Portafolio</h2>
-            <p class="mb-6 text-slate-700 max-w-2xl mx-auto">Descubre una selección de mis trabajos en audio, música y proyectos multimedia.</p>
-            <a href="https://www.driann.com" target="_blank" rel="noopener noreferrer" 
-               class="inline-block bg-cyan-600 text-white font-medium py-3 px-8 rounded-lg shadow-md hover:bg-cyan-700 transition-colors text-lg">
-                Visitar www.driann.com 🔗
-            </a>
+            <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block" data-lang-key="portfolioTitle">Portafolio</h2>
+            <p class="mb-6 text-slate-700 max-w-2xl mx-auto" data-lang-key="portfolioIntro">Descubre una selección de mis trabajos en audio, música y proyectos multimedia.</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-8">
+                <a href="https://www.driann.com" target="_blank" rel="noopener noreferrer" 
+                   class="inline-block bg-cyan-600 text-white font-medium py-3 px-6 rounded-lg shadow-md hover:bg-cyan-700 transition-colors text-base">
+                    <span data-lang-key="visitPortfolioBtn">Visitar www.driann.com</span> 🔗
+                </a>
+                <a href="https://youtu.be/wYpyiog8Tpc?si=LpxJ94zt5vUTgpiB" target="_blank" rel="noopener noreferrer" 
+                   class="inline-block bg-slate-200 text-slate-800 font-medium py-3 px-6 rounded-lg shadow-md hover:bg-slate-300 transition-colors text-base">
+                    <span data-lang-key="demoReelBtn">Demo Reel de Audio para Juegos</span> 🎬
+                </a>
+                <a href="https://soundcloud.com/driann-yea" target="_blank" rel="noopener noreferrer" 
+                   class="inline-block bg-slate-200 text-slate-800 font-medium py-3 px-6 rounded-lg shadow-md hover:bg-slate-300 transition-colors text-base">
+                    <span data-lang-key="soundCloudBtn">SoundCloud</span> 🎧
+                </a>
+            </div>
+
+            <div class="mt-12 text-left">
+                <h3 class="text-2xl font-semibold text-slate-800 mb-4" data-lang-key="featuredProjectsTitle">Proyectos Destacados</h3>
+                <p class="text-slate-700 mb-6" data-lang-key="featuredProjectsIntro">Explora algunos de mis trabajos más relevantes en desarrollo de juegos y producción musical.</p>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="card p-6">
+                        <h4 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="projSuperiorRelativesTitle">Superior Relatives (2023)</h4>
+                        <p class="text-sm text-slate-600 mb-3" data-lang-key="projSuperiorRelativesRole">Rol: Productor Musical y Diseñador de Sonido</p>
+                        <p class="text-slate-700" data-lang-key="projSuperiorRelativesDesc">Juego de lucha multijugador local basado en memes. Creé efectos de sonido y una reversión del tema principal de "Super Smash Bros: Brawl".</p>
+                        <a href="https://store.epicgames.com/en-US/p/superior-crack-relatives-a75621" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-cyan-600 hover:underline text-sm" data-lang-key="projSuperiorRelativesLink">Ver en Epic Games Store ↗</a>
+                    </div>
+
+                    <div class="card p-6">
+                        <h4 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="projPaperPalsTitle">PAPER PALS (2024)</h4>
+                        <p class="text-sm text-slate-600 mb-3" data-lang-key="projPaperPalsRole">Rol: Diseñador de Sonido, Compositor Musical, Diseñador de Nivel, Gestor de Proyecto, Localización y Programación</p>
+                        <p class="text-slate-700" data-lang-key="projPaperPalsDesc">Plataformero 2.5D desarrollado en Godot Engine para la "Level Up Game Jam 2024". Un proyecto de equipo donde exploramos Godot 3D por primera vez. Disponible para Windows y Linux.</p>
+                        <a href="https://driann.itch.io/paper-pals" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-cyan-600 hover:underline text-sm" data-lang-key="projPaperPalsLink">Jugar en itch.io ↗</a>
+                    </div>
+
+                    <div class="card p-6">
+                        <h4 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="projEyeKillerTitle">eye killer (2024)</h4>
+                        <p class="text-sm text-slate-600 mb-3" data-lang-key="projEyeKillerRole">Rol: SFX, Música, Diseño de Juego, Programación, Arte de Entorno</p>
+                        <p class="text-slate-700" data-lang-key="projEyeKillerDesc">Plataformero de acción 2D creado con Godot para la "Acerola Jam 0". Mi primera incursión en este motor y en el pixel art de entornos. Desarrollado en solitario. Disponible para Windows y Linux.</p>
+                        <a href="https://driann.itch.io/eyekiller" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-cyan-600 hover:underline text-sm" data-lang-key="projEyeKillerLink">Jugar en itch.io ↗</a>
+                    </div>
+
+                    <div class="card p-6">
+                        <h4 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="projFlappyTitle">just a normal flappy game (2023)</h4>
+                        <p class="text-sm text-slate-600 mb-3" data-lang-key="projFlappyRole">Rol: SFX, Composición Musical e Implementación Dinámica</p>
+                        <p class="text-slate-700" data-lang-key="projFlappyDesc">Mi participación en la "Game JamPlus 23/24", trabajando en solitario. Grabé guitarra eléctrica para la música y creé todos los SFX a partir de grabaciones de guitarra, implementando el audio dinámicamente en Unity usando FMOD.</p>
+                        <a href="https://driann.itch.io/flappy" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-cyan-600 hover:underline text-sm" data-lang-key="projFlappyLink">Jugar en itch.io ↗</a>
+                    </div>
+
+                    <div class="card p-6">
+                        <h4 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="projBachacoTitle">bachaco the game (2023)</h4>
+                        <p class="text-sm text-slate-600 mb-3" data-lang-key="projBachacoRole">Rol: Programador, Compositor Musical e Implementación Dinámica</p>
+                        <p class="text-slate-700" data-lang-key="projBachacoDesc">Un juego corto creado para la "Brackeys Game Jam 2023.2" con el tema "Diving Deeper". Desarrollado en colaboración con un artista 2D, marcando nuestra primera experiencia con Unity.</p>
+                        <a href="https://driann.itch.io/bachaco-the-game" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-cyan-600 hover:underline text-sm" data-lang-key="projBachacoLink">Jugar en itch.io ↗</a>
+                    </div>
+                </div>
+            </div>
         </section>
         
         <section id="recomendacion" class="py-12 md:py-16 bg-slate-100 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
             <div class="container mx-auto">
-                <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block">Recomendación</h2>
+                <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block" data-lang-key="recommendationTitle">Recomendación</h2>
                  <div class="card p-6 md:p-8 max-w-3xl mx-auto">
                     <blockquote class="text-slate-700 italic text-center">
-                        <p>"El trato con sus compañeros y superiores siempre fue amable y mostró una excelente disposición en todo cuanto desarrollaba. Es por ello, que como Vicerrector lo recomiendo ampliamente, ya que es un joven con don de gente y en lo particular, comprometido desde los valores humanos propios de quienes tienen esa sensibilidad en las relaciones laborales y profesionales."</p>
+                        <p data-lang-key="recommendationQuote">"El trato con sus compañeros y superiores siempre fue amable y mostró una excelente disposición en todo cuanto desarrollaba. Es por ello, que como Vicerrector lo recomiendo ampliamente, ya que es un joven con don de gente y en lo particular, comprometido desde los valores humanos propios de quienes tienen esa sensibilidad en las relaciones laborales y profesionales."</p>
                     </blockquote>
-                    <p class="mt-4 text-right font-medium text-cyan-700">
+                    <p class="mt-4 text-right font-medium text-cyan-700" data-lang-key="recommendationAuthor">
                         - Angel Liendo, Vicerrector de la Universidad Audiovisual de Venezuela, 2024.
                     </p>
-                    <p class="mt-1 text-sm text-slate-500 text-right">(Carta de recomendación completa disponible bajo solicitud)</p>
+                    <p class="mt-1 text-sm text-slate-500 text-right" data-lang-key="recommendationNote">(Carta de recomendación completa disponible bajo solicitud)</p>
                 </div>
             </div>
         </section>
 
         <section id="contacto" class="py-12 md:py-16 text-center">
-            <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block">Contacto</h2>
-            <p class="mb-8 text-slate-700 max-w-xl mx-auto">¡Hablemos! Estoy disponible para discutir oportunidades y proyectos.</p>
+            <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block" data-lang-key="contactTitle">Contacto</h2>
+            <p class="mb-8 text-slate-700 max-w-xl mx-auto" data-lang-key="contactIntro">¡Hablemos! Estoy disponible para discutir oportunidades y proyectos.</p>
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                <a href="mailto:drianbetancourt@gmail.com" class="inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-cyan-600 hover:bg-cyan-700 transition-colors">
+                <a href="mailto:drianbetancourt@gmail.com" class="inline-flex items-center justify-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-cyan-600 hover:bg-cyan-700 transition-colors" data-lang-key="sendEmailBtn">
                     📧 Enviar Email
                 </a>
-                <a href="https://www.linkedin.com/in/driann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 border border-slate-300 rounded-md text-base font-medium text-slate-700 bg-white hover:bg-slate-50 transition-colors">
+                <a href="https://www.linkedin.com/in/driann" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 border border-slate-300 rounded-md text-base font-medium text-slate-700 bg-white hover:bg-slate-50 transition-colors" data-lang-key="connectLinkedInBtn">
                      <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" clip-rule="evenodd"/></svg>
                     Conectar en LinkedIn
                 </a>
             </div>
-            <p class="mt-6 text-slate-600">Teléfono: <a href="tel:+5491135747987" class="text-cyan-600 hover:underline">+54 9 11 3574 7987</a></p>
+            <p class="mt-6 text-slate-600" data-lang-key="contactPhone">Teléfono: <a href="tel:+5491135747987" class="text-cyan-600 hover:underline">+54 9 11 3574 7987</a></p>
         </section>
     </main>
 
     <footer class="bg-slate-800 text-slate-300 py-8 text-center">
-        <p>&copy; <span id="currentYear"></span> Adrián Betancourt. Todos los derechos reservados.</p>
-        <p class="text-sm mt-1">Diseñado con pasión en Buenos Aires.</p>
+        <p data-lang-key="footerCopyright">© <span id="currentYear"></span> Adrián Betancourt. Todos los derechos reservados.</p>
+        <p class="text-sm mt-1" data-lang-key="footerDesign">Diseñado con pasión en Buenos Aires.</p>
     </footer>
 
     <script>
+        const content = {
+            es: {
+                pageTitle: "Adrián Betancourt - Profesional de Audio y Creativo Multimedia",
+                navHome: "Inicio",
+                navAudioExp: "Experiencia en Audio",
+                navAddExp: "Experiencia Adicional",
+                navSkills: "Habilidades",
+                navPortfolio: "Portafolio",
+                navContact: "Contacto",
+                heroSubtitle: "Profesional de Audio y Creativo Multimedia | Disponible para Desafíos Inmediatos",
+                heroSummary: "Profesional de audio bilingüe (español nativo, inglés C2) con 5 años de experiencia en música y sonido para videojuegos, cine y multimedia. Especializado en postproducción, producción musical e integración de audio (FMOD). Combino mi pasión por el sonido con una sólida experiencia en gestión de proyectos, atención al cliente y una gran adaptabilidad, buscando oportunidades desafiantes e inmediatas donde aplicar mi creatividad y habilidades técnicas.",
+                portfolioLinkText: "Portafolio: www.driann.com",
+                heroLocation: "Palermo, CABA, Argentina",
+                heroVideoCaption: "Video destacado: Demo Reel de Audio para Juegos", // New text for video caption
+                audioExpTitle: "Experiencia en Audio",
+                audioExpIntro: "Más de 5 años dedicados al diseño sonoro, producción musical y postproducción para diversos proyectos audiovisuales.",
+                tabJefeAudio: "Jefe de Audio | Univ. Audiovisual VE",
+                tabFreelanceFilm: "Freelance Cine",
+                tabFreelanceGames: "Freelance Videojuegos",
+                jobAudioHeadTitle: "Jefe de Audio en el Vicerrectorado de Producción",
+                jobAudioHeadDuration: "Universidad Audiovisual de Venezuela | 2018 - 2024",
+                jobAudioHeadDuties: `
+                    <li>Ejecución de diseño de sonido, síntesis de audio y creación de efectos de sonido para múltiples cortometrajes estudiantiles.</li>
+                    <li>Técnico de audio y asistente de ingeniería para eventos musicales en TV en vivo, streaming y conciertos.</li>
+                    <li>Composición y producción de música y diseño sonoro para videos de marketing, cortometrajes, anuncios de radio y documentales.</li>
+                    <li>Edición de audio, grabación, postproducción completa (edición de diálogos, ADR, Foley virtual, sincronización), limpieza y restauración para videos, radio y podcasts.</li>
+                    <li>Coordinación de equipos multidisciplinarios y gestión logística de equipos técnicos para eventos y transmisiones.</li>
+                `,
+                jobFreelanceFilmTitle: "Diseñador de Sonido y Compositor Musical Freelance",
+                jobFreelanceFilmDuration: "Proyectos Cinematográficos | 2020 - Presente",
+                jobFreelanceFilmDuties: `
+                    <li>Realización de grabaciones de audio en set, postproducción integral, mezcla de audio Dolby y producción musical para cortometrajes.</li>
+                    <li>Edición de diálogos detallada y limpieza de audio para asegurar claridad narrativa.</li>
+                    <li>Grabaciones de campo, edición y mezcla de audio, y composición de música original para documentales y podcasts de video.</li>
+                    <li>Diseño de sonido completo para un cortometraje galardonado en la 19ª edición del Festival de Cine de Venezuela.</li>
+                `,
+                jobFreelanceGamesTitle: "Diseñador de Sonido y Compositor Musical Freelance",
+                jobFreelanceGamesDuration: "Proyectos de Videojuegos | 2021 - Presente",
+                jobFreelanceGamesDuties: `
+                    <li>Participación en más de 10 game jams, creando activos de audio, produciendo música y utilizando middleware FMOD.</li>
+                    <li>Diseño e implementación de efectos de sonido en FMOD para un juego de carreras en Unity durante una game jam.</li>
+                    <li>Desarrollo integral (diseño de juego, programación y audio) de 2 prototipos de juegos en game jams (Unity con FMOD, y Godot Engine).</li>
+                    <li>Liderazgo del equipo de audio en un proyecto de juego, responsabilizándome de todos los efectos de sonido y la música.</li>
+                    <li>Preproducción de audio para un juego "cozy": creación de listas de archivos de sonido, documentos de gestión de tareas y diseño de sonido general.</li>
+                `,
+                addExpTitle: "Experiencia Adicional",
+                addExpIntro: "Roles que demuestran mi adaptabilidad, habilidades de servicio al cliente y disponibilidad inmediata.",
+                jobDeliTitle: "Empleado de Fiambrería",
+                jobDeliDuration: "La Estancia San Francisco | Mayo 2025",
+                jobDeliDuties: `
+                    <li>Recepción y organización de mercancía, carga de productos.</li>
+                    <li>Corte de fiambres y manejo de máquina cortadora.</li>
+                    <li>Atención al cliente, empaquetado, desempeño ágil bajo presión.</li>
+                `,
+                jobCashierTitle: "Cajero / Reponedor",
+                jobCashierDuration: "1440 Drugstore | Marzo - Abril 2025",
+                jobCashierDuties: `
+                    <li>Atención al cliente, gestión de cobros, manejo de efectivo.</li>
+                    <li>Recepción, reposición y organización de mercancía, control de stock.</li>
+                    <li>Mantenimiento del orden y limpieza del local.</li>
+                `,
+                jobSalesTitle: "Asesor de Ventas Telefónicas",
+                jobSalesDuration: "IBM Motors | Febrero 2025",
+                jobSalesDuties: `
+                    <li>Gestión de consultas sobre compra/venta de vehículos.</li>
+                    <li>Negociación y cierre de operaciones con clientes corporativos.</li>
+                    <li>Manejo de múltiples tareas simultáneas (bases de datos, llamadas, emails).</li>
+                `,
+                jobInterpreterTitle: "Intérprete Bilingüe (Call Center)",
+                jobInterpreterDuration: "TNI OUTSOURCING (Remoto) | Nov 2024 - Ene 2025",
+                jobInterpreterDuties: `
+                    <li>Traducción simultánea inglés-español para llamadas internacionales.</li>
+                    <li>Comunicación clara en situaciones de alta demanda, registro de datos.</li>
+                `,
+                jobGuitarTeacherTitle: "Profesor Particular de Guitarra",
+                jobGuitarTeacherDuration: "Autónomo (Venezuela) | 2016 - 2024",
+                jobGuitarTeacherDuties: `
+                    <li>Planificación personalizada de clases para +30 alumnos.</li>
+                    <li>Manejo de agenda, efectivo y administración de pagos.</li>
+                    <li>Comunicación efectiva con padres/tutores sobre progresos.</li>
+                `,
+                skillsTitle: "Habilidades",
+                skillsIntro: "Un conjunto diverso de herramientas y competencias técnicas y blandas.",
+                skillsAudioSoftwareTitle: "Software de Audio y Postproducción",
+                skillsVideoStreamingTitle: "Software Video y Streaming",
+                skillsGameDevTitle: "Desarrollo de Videojuegos",
+                skillsOtherToolsTitle: "Otros Software y Herramientas",
+                skillsLanguagesTitle: "Idiomas",
+                langSpanish: "Español (Nativo)",
+                langEnglish: "Inglés (C2 Proficient - <a href='https://cert.efset.org/Z4a9Xi' target='_blank' rel='noopener noreferrer' class='underline hover:text-cyan-800'>Certificado EFSET</a>)",
+                skillsSoftSkillsTitle: "Habilidades Clave y Blandas",
+                trainingTitle: "Formación Complementaria",
+                trainingIntro: "Aprendizaje continuo para potenciar mis habilidades.",
+                coursesTitle: "Cursos Online (Platzi)",
+                coursesList: `
+                    <li>Curso de Inglés Práctico y Conversacional (2024)</li>
+                    <li>Curso de Excel: Fundamentos y Formato de Hojas de Cálculo (2024)</li>
+                    <li>Curso de Gestión Efectiva del Tiempo (2023)</li>
+                `,
+                certsTitle: "Certificaciones y Otros",
+                certsList: `
+                    <li>Certificado Inglés C2 Nivel Proficient (EF SET): <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener noreferrer" class="underline hover:text-cyan-800">Ver Certificado</a></li>
+                    <li>Carnet de manipulación de alimentos (Agencia Gubernamental de Control, CABA)</li>
+                `,
+                viewCert: "Ver Certificado",
+                portfolioTitle: "Portafolio",
+                portfolioIntro: "Descubre una selección de mis trabajos en audio, música y proyectos multimedia.",
+                visitPortfolioBtn: "Visitar www.driann.com",
+                demoReelBtn: "Demo Reel de Audio para Juegos",
+                soundCloudBtn: "SoundCloud",
+                featuredProjectsTitle: "Proyectos Destacados",
+                featuredProjectsIntro: "Explora algunos de mis trabajos más relevantes en desarrollo de juegos y producción musical.",
+                
+                projSuperiorRelativesTitle: "Superior Relatives (2023)",
+                projSuperiorRelativesRole: "Rol: Productor Musical y Diseñador de Sonido",
+                projSuperiorRelativesDesc: "Juego de lucha multijugador local basado en memes. Creé efectos de sonido y una reversión del tema principal de \"Super Smash Bros: Brawl\".",
+                projSuperiorRelativesLink: "Ver en Epic Games Store ↗",
+
+                projPaperPalsTitle: "PAPER PALS (2024)",
+                projPaperPalsRole: "Rol: Diseñador de Sonido, Compositor Musical, Diseñador de Nivel, Gestor de Proyecto, Localización y Programación",
+                projPaperPalsDesc: "Plataformero 2.5D desarrollado en Godot Engine para la \"Level Up Game Jam 2024\". Un proyecto de equipo donde exploramos Godot 3D por primera vez. Disponible para Windows y Linux.",
+                projPaperPalsLink: "Jugar en itch.io ↗",
+
+                projEyeKillerTitle: "eye killer (2024)",
+                projEyeKillerRole: "Rol: SFX, Música, Diseño de Juego, Programación, Arte de Entorno",
+                projEyeKillerDesc: "Plataformero de acción 2D creado con Godot para la \"Acerola Jam 0\". Mi primera incursión en este motor y en el pixel art de entornos. Desarrollado en solitario. Disponible para Windows y Linux.",
+                projEyeKillerLink: "Jugar en itch.io ↗",
+
+                projFlappyTitle: "just a normal flappy game (2023)",
+                projFlappyRole: "Rol: SFX, Composición Musical e Implementación Dinámica",
+                projFlappyDesc: "Mi participación en la \"Game JamPlus 23/24\", trabajando en solitario. Grabé guitarra eléctrica para la música y creé todos los SFX a partir de grabaciones de guitarra, implementando el audio dinámicamente en Unity usando FMOD.",
+                projFlappyLink: "Jugar en itch.io ↗",
+
+                projBachacoTitle: "bachaco the game (2023)",
+                projBachacoRole: "Rol: Programador, Compositor Musical e Implementación Dinámica",
+                projBachacoDesc: "Un juego corto creado para la \"Brackeys Game Jam 2023.2\" con el tema \"Diving Deeper\". Desarrollado en colaboración con un artista 2D, marcando nuestra primera experiencia con Unity.",
+                projBachacoLink: "Jugar en itch.io ↗",
+
+                recommendationTitle: "Recomendación",
+                recommendationQuote: `"El trato con sus compañeros y superiores siempre fue amable y mostró una excelente disposición en todo cuanto desarrollaba. Es por ello, que como Vicerrector lo recomiendo ampliamente, ya que es un joven con don de gente y en lo particular, comprometido desde los valores humanos propios de quienes tienen esa sensibilidad en las relaciones laborales y profesionales."`,
+                recommendationAuthor: "- Angel Liendo, Vicerrector de la Universidad Audiovisual de Venezuela, 2024.",
+                recommendationNote: "(Carta de recomendación completa disponible bajo solicitud)",
+                contactTitle: "Contacto",
+                contactIntro: "¡Hablemos! Estoy disponible para discutir oportunidades y proyectos.",
+                sendEmailBtn: "📧 Enviar Email",
+                connectLinkedInBtn: "Conectar en LinkedIn",
+                contactPhone: "Teléfono:",
+                footerCopyright: "© <span id='currentYear'></span> Adrián Betancourt. Todos los derechos reservados.",
+                footerDesign: "Diseñado con pasión en Buenos Aires."
+            },
+            en: {
+                pageTitle: "Adrián Betancourt - Audio Professional & Multimedia Creative",
+                navHome: "Home",
+                navAudioExp: "Audio Experience",
+                navAddExp: "Additional Experience",
+                navSkills: "Skills",
+                navPortfolio: "Portfolio",
+                navContact: "Contact",
+                heroSubtitle: "Audio Professional & Multimedia Creative | Available for Immediate Challenges",
+                heroSummary: "Bilingual audio professional (Native Spanish, C2 English) with 5 years of experience in music and sound for video games, film, and multimedia. Specialized in audio post-production, music production, and audio integration (FMOD). I combine my passion for sound with solid experience in project management, customer service, and high adaptability, seeking challenging and immediate opportunities to apply my creativity and technical skills.",
+                portfolioLinkText: "Portfolio: www.driann.com",
+                heroLocation: "Palermo, CABA, Argentina",
+                heroVideoCaption: "Featured Video: Game Audio Demo Reel", // New text for video caption
+                audioExpTitle: "Audio Experience",
+                audioExpIntro: "Over 5 years dedicated to sound design, music production, and post-production for various audiovisual projects.",
+                tabJefeAudio: "Head of Audio | Audiovisual Univ. VE",
+                tabFreelanceFilm: "Freelance Film",
+                tabFreelanceGames: "Freelance Games",
+                jobAudioHeadTitle: "Head of Audio at the Vice-Rectorate of Production",
+                jobAudioHeadDuration: "Audiovisual University of Venezuela | 2018 - 2024",
+                jobAudioHeadDuties: `
+                    <li>Execution of sound design, audio synthesis, and creation of sound effects for multiple student short films.</li>
+                    <li>Audio technician and assistant audio engineer for live TV music events, streaming, and private concerts.</li>
+                    <li>Composition and production of music and sound design for marketing videos, short films, radio ads, and documentaries.</li>
+                    <li>Audio editing, recording, complete post-production (dialogue editing, ADR, virtual Foley, synchronization), cleaning, and restoration for videos, radio, and podcasts.</li>
+                    <li>Coordination of multidisciplinary teams and logistical management of technical equipment for events and broadcasts.</li>
+                `,
+                jobFreelanceFilmTitle: "Freelance Sound Designer and Music Composer",
+                jobFreelanceFilmDuration: "Film Projects | 2020 - Present",
+                jobFreelanceFilmDuties: `
+                    <li>On-set audio recording, comprehensive post-production, Dolby audio mixing, and music production for short films.</li>
+                    <li>Detailed dialogue editing and audio cleaning to ensure narrative clarity.</li>
+                    <li>Field recordings, audio editing and mixing, and original music composition for documentaries and video podcasts.</li>
+                    <li>Complete sound design for an award-winning short film at the 19th Venezuela Film Festival.</li>
+                `,
+                jobFreelanceGamesTitle: "Freelance Sound Designer and Music Composer",
+                jobFreelanceGamesDuration: "Video Game Projects | 2021 - Present",
+                jobFreelanceGamesDuties: `
+                    <li>Participated in over 10 game jams, creating audio assets, producing music, and using FMOD middleware.</li>
+                    <li>Designed and implemented sound effects in FMOD for a racing game in Unity during a game jam.</li>
+                    <li>Full development (game design, programming, and audio) of 2 game jam prototypes (Unity with FMOD, and Godot Engine).</li>
+                    <li>Led a game team and handled all sound effects and music for the project.</li>
+                    <li>Executed audio pre-production for a cozy game: sound file list, task management document, general sound design document.</li>
+                `,
+                addExpTitle: "Additional Experience",
+                addExpIntro: "Roles demonstrating my adaptability, customer service skills, and immediate availability.",
+                jobDeliTitle: "Deli Employee",
+                jobDeliDuration: "La Estancia San Francisco | May 2025",
+                jobDeliDuties: `
+                    <li>Reception and organization of merchandise, including loading boxes and products.</li>
+                    <li>Slicing various cold cuts and operating slicing machine.</li>
+                    <li>Customer service by number, order packaging, and agile performance under pressure.</li>
+                `,
+                jobCashierTitle: "Cashier / Stocker",
+                jobCashierDuration: "1440 Drugstore | March - April 2025",
+                jobCashierDuties: `
+                    <li>Customer service and cash register management. Handling cash, opening and closing cash register.</li>
+                    <li>Reception, stocking, and organization of merchandise. Inventory control and periodic stocktaking.</li>
+                    <li>Maintenance of general order and cleanliness of the premises.</li>
+                `,
+                jobSalesTitle: "Telemarketing Sales Advisor",
+                jobSalesDuration: "IBM Motors | February 2025",
+                jobSalesDuties: `
+                    <li>Management of inquiries regarding vehicle purchase/sale.</li>
+                    <li>Negotiation and closing of operations with corporate clients.</li>
+                    <li>Handling multiple simultaneous tasks (databases, calls, system records, emails).</li>
+                `,
+                jobInterpreterTitle: "Bilingual Interpreter (Call Center)",
+                jobInterpreterDuration: "TNI OUTSOURCING (Remote) | Nov 2024 - Jan 2025",
+                jobInterpreterDuties: `
+                    <li>Simultaneous English-Spanish translation for international calls.</li>
+                    <li>Clear communication in high-demand situations. Accurate data recording in digital systems.</li>
+                `,
+                jobGuitarTeacherTitle: "Private Guitar Teacher",
+                jobGuitarTeacherDuration: "Freelance (Venezuela) | 2016 - 2024",
+                jobGuitarTeacherDuties: `
+                    <li>Personalized lesson planning for +30 students, agenda management, cash and payment administration.</li>
+                    <li>Effective communication with parents/guardians about progress.</li>
+                `,
+                skillsTitle: "Skills",
+                skillsIntro: "A diverse set of technical and soft skills and tools.",
+                skillsAudioSoftwareTitle: "Audio & Post-production Software",
+                skillsVideoStreamingTitle: "Video & Streaming Software",
+                skillsGameDevTitle: "Video Game Development",
+                skillsOtherToolsTitle: "Other Software & Tools",
+                skillsLanguagesTitle: "Languages",
+                langSpanish: "Spanish (Native)",
+                langEnglish: "English (C2 Proficient - <a href='https://cert.efset.org/Z4a9Xi' target='_blank' rel='noopener noreferrer' class='underline hover:text-cyan-800'>EFSET Certified</a>)",
+                skillsSoftSkillsTitle: "Key & Soft Skills",
+                trainingTitle: "Complementary Training",
+                trainingIntro: "Continuous learning to enhance my skills.",
+                coursesTitle: "Online Courses (Platzi)",
+                coursesList: `
+                    <li>Practical and Conversational English Course (2024)</li>
+                    <li>Excel Course: Fundamentals and Spreadsheet Formatting (2024)</li>
+                    <li>Effective Time Management Course (2023)</li>
+                `,
+                certsTitle: "Certifications and Others",
+                certsList: `
+                    <li>C2 Proficient English Certificate (EF SET): <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener noreferrer" class="underline hover:text-cyan-800">View Certificate</a></li>
+                    <li>Food Handler's Card (Government Agency of Control, CABA)</li>
+                `,
+                viewCert: "View Certificate",
+                portfolioTitle: "Portfolio",
+                portfolioIntro: "Discover a selection of my work in audio, music, and multimedia projects.",
+                visitPortfolioBtn: "Visit www.driann.com",
+                demoReelBtn: "Game Audio Demo Reel",
+                soundCloudBtn: "SoundCloud",
+                featuredProjectsTitle: "Featured Projects",
+                featuredProjectsIntro: "Explore some of my most relevant works in game development and music production.",
+
+                projSuperiorRelativesTitle: "Superior Relatives (2023)",
+                projSuperiorRelativesRole: "Role: Music Producer and Sound Designer",
+                projSuperiorRelativesDesc: "Meme-based, couch-based multiplayer fighting game. I created sound effects and a reversion of the \"Super Smash Bros: Brawl\" main theme.",
+                projSuperiorRelativesLink: "View on Epic Games Store ↗",
+
+                projPaperPalsTitle: "PAPER PALS (2024)",
+                projPaperPalsRole: "Role: Sound Designer, Music Composer, Level Designer, Project Manager, Localization and Programming",
+                projPaperPalsDesc: "2.5D Platformer game developed in Godot Engine for the \"Level Up Game Jam 2024\". A team project where we explored Godot 3D for the first time. Available for Windows and Linux.",
+                projPaperPalsLink: "Play on itch.io ↗",
+
+                projEyeKillerTitle: "eye killer (2024)",
+                projEyeKillerRole: "Role: SFX, Music, Game Design, Programming, Environment Art",
+                projEyeKillerDesc: "2D action platformer created with Godot for the \"Acerola Jam 0\". My first foray into this engine and pixel art environments. Developed solo. Available for Windows and Linux.",
+                projEyeKillerLink: "Play on itch.io ↗",
+
+                projFlappyTitle: "just a normal flappy game (2023)",
+                projFlappyRole: "Role: SFX, Music Composition and Dynamic Implementation",
+                projFlappyDesc: "My participation in the \"Game JamPlus 23/24\", working solo. I recorded electric guitar for the music and created all SFX from guitar recordings, dynamically implementing audio in Unity using FMOD.",
+                projFlappyLink: "Play on itch.io ↗",
+
+                projBachacoTitle: "bachaco the game (2023)",
+                projBachacoRole: "Role: Programmer, Music Composer and Dynamic Implementation",
+                projBachacoDesc: "A short game created for the \"Brackeys Game Jam 2023.2\" with the theme \"Diving Deeper\". Developed in collaboration with a 2D artist, marking our first experience with Unity.",
+                projBachacoLink: "Play on itch.io ↗",
+
+                recommendationTitle: "Recommendation",
+                recommendationQuote: `"His treatment of colleagues and superiors was always kind, and he showed excellent disposition in everything he developed. Therefore, as Vice-Rector, I highly recommend him, as he is a young man with a gift for people and, in particular, committed from the human values inherent in those who have that sensitivity in work and professional relationships."`,
+                recommendationAuthor: "- Angel Liendo, Vice-Rector of the Audiovisual University of Venezuela, 2024.",
+                recommendationNote: "(Full letter of recommendation available upon request)",
+                contactTitle: "Contact",
+                contactIntro: "Let's talk! I am available to discuss opportunities and projects.",
+                sendEmailBtn: "📧 Send Email",
+                connectLinkedInBtn: "Connect on LinkedIn",
+                contactPhone: "Phone:",
+                footerCopyright: "© <span id='currentYear'></span> Adrián Betancourt. All rights reserved.",
+                footerDesign: "Designed with passion in Buenos Aires."
+            }
+        };
+
+        let currentLang = 'es'; // Default language
+
+        // Function to update content based on language
+        function updateContent(lang) {
+            document.querySelectorAll('[data-lang-key]').forEach(element => {
+                const key = element.dataset.langKey;
+                if (content[lang][key]) {
+                    // Check if the content is HTML (e.g., for list items)
+                    if (element.tagName === 'UL' || element.tagName === 'LI') {
+                        element.innerHTML = content[lang][key];
+                    } else {
+                        element.textContent = content[lang][key];
+                    }
+                }
+            });
+            // Special handling for title tag
+            document.title = content[lang].pageTitle;
+
+            // Update active language toggle buttons
+            document.querySelectorAll('.language-toggle').forEach(button => {
+                if (button.dataset.lang === lang) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+            currentLang = lang; // Update global language state
+        }
+
+        // Event listeners for language toggle buttons (desktop)
+        document.getElementById('lang-es').addEventListener('click', () => updateContent('es'));
+        document.getElementById('lang-en').addEventListener('click', () => updateContent('en'));
+
+        // Event listeners for language toggle buttons (mobile)
+        document.getElementById('lang-es-mobile').addEventListener('click', () => updateContent('es'));
+        document.getElementById('lang-en-mobile').addEventListener('click', () => updateContent('en'));
+
+
         // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -396,6 +840,9 @@
         }
         window.addEventListener('scroll', changeNavOnScroll);
         changeNavOnScroll(); // Initial check
+
+        // Initial content load
+        updateContent(currentLang);
 
     </script>
 </body>
