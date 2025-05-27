@@ -92,6 +92,19 @@
         .soundcloud-embed-container iframe {
             border-radius: 0.5rem;
         }
+        .itch-embed-container {
+            border-radius: 0.375rem; /* rounded-md */
+            overflow: hidden;
+            border: 1px solid #0891b2; /* border-cyan-600 */
+            box-shadow: 0 1px 2px 0 rgba(0,0,0,0.05); /* shadow-sm */
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 1rem; /* my-4 */
+            margin-bottom: 1rem; /* my-4 */
+        }
+        .itch-embed-container iframe {
+            display: block; /* Remove extra space below iframe */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -152,17 +165,17 @@
 
                 <div class="mt-8 mb-8 mx-auto max-w-4xl">
                     <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/wYpyiog8Tpc" 
-                                title="YouTube video player" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                referrerpolicy="strict-origin-when-cross-origin" 
+                        <iframe src="https://www.youtube.com/embed/wYpyiog8Tpc"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
                                 allowfullscreen>
                         </iframe>
                     </div>
                     <p class="mt-4 text-sm text-slate-600" data-lang-key="heroVideoCaption">Video destacado: Demo Reel de Audio para Juegos</p>
                 </div>
-                
+
                 <div class="mt-8 flex flex-col sm:flex-row sm:flex-wrap justify-center md:justify-start gap-3 text-sm">
                     <a href="mailto:drianbetancourt@gmail.com" class="inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm font-medium text-white bg-cyan-600 hover:bg-cyan-700 transition-colors">
                         📧 drianbetancourt@gmail.com
@@ -188,15 +201,31 @@
                 <div class="md:col-span-2">
                     <h3 class="text-2xl font-semibold text-slate-800 mb-4 section-title inline-block" data-lang-key="gameProjectsTitle">Proyectos de videojuegos</h3>
                 </div>
-                
+
+                <div class="card p-6">
+                    <h4 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="projSkeletonMasterTitle">Skeleton Master (2024)</h4>
+                    <div class="video-container mb-4">
+                        <iframe src="https://www.youtube.com/embed/K6UF9vBsI_g"
+                                title="Video de Skeleton Master"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                    <p class="text-sm text-slate-600 mb-3" data-lang-key="projSkeletonMasterRole">Rol: SFX, Música (FMOD en Unity)</p>
+                    <p class="text-slate-700" data-lang-key="projSkeletonMasterDesc">Adéntrate en un mundo tenebroso en el que eres un maestro de los esqueletos. Sobrevive tanto como puedas, al mando de tu ejército de no muertos. ¡Prepárate para una aventura inquietante con imágenes espeluznantes y música dinámica!</p>
+                    <a href="https://www.youtube.com/watch?v=K6UF9vBsI_g" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-cyan-600 hover:underline text-sm" data-lang-key="projSkeletonMasterLink">Jugar / Ver más ↗</a>
+                </div>
+
                 <div class="card p-6">
                     <h4 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="projPaperPalsTitle">Paper pals (2024)</h4>
                     <div class="video-container mb-4">
-                        <iframe src="https://www.youtube.com/embed/-QqvRrbSvNY" 
-                                title="YouTube video player" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                referrerpolicy="strict-origin-when-cross-origin" 
+                        <iframe src="https://www.youtube.com/embed/-QqvRrbSvNY"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
                                 allowfullscreen>
                         </iframe>
                     </div>
@@ -208,11 +237,11 @@
                 <div class="card p-6">
                     <h4 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="projEyeKillerTitle">Eye killer (2024)</h4>
                     <div class="video-container mb-4">
-                        <iframe src="https://www.youtube.com/embed/9JjPaSZs7Tw" 
-                                title="YouTube video player" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                referrerpolicy="strict-origin-when-cross-origin" 
+                        <iframe src="https://www.youtube.com/embed/9JjPaSZs7Tw"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
                                 allowfullscreen>
                         </iframe>
                     </div>
@@ -223,6 +252,11 @@
 
                 <div class="card p-6">
                     <h4 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="projFlappyTitle">Just a really normal flappy game (2023)</h4>
+                    <div class="itch-embed-container" style="width: 208px; height: 167px;">
+                        <iframe frameborder="0" src="https://itch.io/embed/2324254?bg_color=0097a0&amp;link_color=ff4e62&amp;border_color=0097a0" width="208" height="167">
+                            <a href="https://driann.itch.io/flappy">Just a really *normal* flappy game by driann</a>
+                        </iframe>
+                    </div>
                     <p class="text-sm text-slate-600 mb-3" data-lang-key="projFlappyRole">Rol: SFX, Composición Musical e Implementación Dinámica</p>
                     <p class="text-slate-700" data-lang-key="projFlappyDesc">Mi participación en la "Game JamPlus 23/24", trabajando en solitario. Grabé guitarra eléctrica para la música y creé todos los SFX a partir de grabaciones de guitarra, implementando el audio dinámicamente en Unity usando FMOD.</p>
                     <a href="https://driann.itch.o/flappy" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-cyan-600 hover:underline text-sm" data-lang-key="projFlappyLink">Jugar en itch.io ↗</a>
@@ -230,6 +264,11 @@
 
                 <div class="card p-6">
                     <h4 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="projBachacoTitle">Bachaco the game (2023)</h4>
+                     <div class="itch-embed-container" style="width: 208px; height: 167px;">
+                        <iframe frameborder="0" src="https://itch.io/embed/2227341?bg_color=f1ce86&amp;link_color=E86425&amp;border_color=f1ce86" width="208" height="167">
+                            <a href="https://driann.itch.io/bachaco-the-game">Bachaco The Game by driann, Luai_Salah, Ara Bird</a>
+                        </iframe>
+                    </div>
                     <p class="text-sm text-slate-600 mb-3" data-lang-key="projBachacoRole">Rol: Programador, Compositor Musical e Implementación Dinámica</p>
                     <p class="text-slate-700" data-lang-key="projBachacoDesc">Un juego corto creado para la "Brackeys Game Jam 2023.2" con el tema "Diving Deeper". Desarrollado en colaboración con un artista 2D, marcando nuestra primera experiencia con Unity.</p>
                     <a href="https://driann.itch.io/bachaco-the-game" target="_blank" rel="noopener noreferrer" class="inline-block mt-3 text-cyan-600 hover:underline text-sm" data-lang-key="projBachacoLink">Jugar en itch.io ↗</a>
@@ -247,11 +286,11 @@
                 <div class="card p-6">
                     <h4 class="text-xl font-semibold text-cyan-700 mb-2" data-lang-key="projLluviaVocesTitle">Lluvia de voces - shortfilm (2022)</h4>
                     <div class="video-container mb-4">
-                        <iframe src="https://www.youtube.com/embed/iJrxZtflXPY" 
-                                title="YouTube video player" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                referrerpolicy="strict-origin-when-cross-origin" 
+                        <iframe src="https://www.youtube.com/embed/iJrxZtflXPY"
+                                title="YouTube video player"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
                                 allowfullscreen>
                         </iframe>
                     </div>
@@ -265,7 +304,7 @@
             <div class="soundcloud-embed-container">
                 <iframe width="100%" height="450" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1571626060&color=%230891b2&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe>
                 <div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;">
-                    <a href="https://soundcloud.com/driann-yea" title="driann" target="_blank" style="color: #cccccc; text-decoration: none;">driann</a> · 
+                    <a href="https://soundcloud.com/driann-yea" title="driann" target="_blank" style="color: #cccccc; text-decoration: none;">driann</a> ·
                     <a href="https://soundcloud.com/driann-yea/sets/featured-work" title="Featured work" target="_blank" style="color: #cccccc; text-decoration: none;">Featured work</a>
                 </div>
             </div>
@@ -281,7 +320,7 @@
         <section id="experiencia-audio" class="py-12 md:py-16">
             <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block" data-lang-key="audioExpTitle">Experiencia en audio</h2>
             <p class="mb-8 text-slate-700" data-lang-key="audioExpIntro">Más de 5 años dedicados al diseño sonoro, producción musical y postproducción para diversos proyectos audiovisuales.</p>
-            
+
             <div class="mb-6 flex flex-wrap gap-2 border-b border-slate-200">
                 <button class="tab-button py-2 px-4 font-medium text-slate-600 border-b-2 border-transparent hover:border-cyan-500 hover:text-cyan-600 active" data-tab="freelance-juegos" data-lang-key="tabFreelanceGames">Freelance Videojuegos</button>
                 <button class="tab-button py-2 px-4 font-medium text-slate-600 border-b-2 border-transparent hover:border-cyan-500 hover:text-cyan-600" data-tab="freelance-cine" data-lang-key="tabFreelanceFilm">Freelance Cine</button>
@@ -322,6 +361,7 @@
                         <li>Edición de audio, grabación, postproducción completa (edición de diálogos, ADR, Foley virtual, sincronización), limpieza y restauración para videos, radio y podcasts.</li>
                         <li>Coordinación de equipos multidisciplinarios y gestión logística de equipos técnicos para eventos y transmisiones.</li>
                     </ul>
+                    <p class="mt-3 text-sm text-slate-500" data-lang-key="jobAudioHeadReference"></p>
                 </div>
             </div>
         </section>
@@ -409,7 +449,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="experiencia-adicional" class="py-12 md:py-16">
             <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block" data-lang-key="addExpTitle">Experiencia adicional</h2>
             <p class="mb-8 text-slate-700" data-lang-key="addExpIntro">Roles que demuestran mi adaptabilidad, habilidades de servicio al cliente y disponibilidad inmediata.</p>
@@ -422,6 +462,7 @@
                         <li>Corte de fiambres y manejo de máquina cortadora.</li>
                         <li>Atención al cliente, empaquetado, desempeño ágil bajo presión.</li>
                     </ul>
+                    <p class="mt-2 text-xs text-slate-500" data-lang-key="jobDeliReference"></p>
                 </div>
                 <div class="card p-6">
                     <h3 class="text-lg font-semibold text-cyan-700" data-lang-key="jobCashierTitle">Cajero / reponedor</h3>
@@ -460,7 +501,7 @@
                 </div>
             </div>
         </section>
-        
+
         <section id="recomendacion" class="py-12 md:py-16 bg-slate-100 -mx-4 sm:-mx-6 lg:-mx-8 px-4 sm:px-6 lg:px-8">
             <div class="container mx-auto">
                 <h2 class="text-3xl font-bold text-slate-900 mb-3 section-title inline-block" data-lang-key="recommendationTitle">Recomendación</h2>
@@ -508,21 +549,22 @@
                 navAudioExp: "Experiencia en Audio",
                 navAddExp: "Experiencia Adicional",
                 navContact: "Contacto",
-                heroSubtitle: "Audio para Videojuegos | Audio para Cine | Diseño de Sonido | Compositor Musical", // Updated for Spanish translation
+                heroSubtitle: "Audio para Videojuegos | Audio para Cine | Diseño de Sonido | Compositor Musical",
                 heroVideoCaption: "Video destacado: Demo Reel de Audio para Juegos",
-                linkedinLinkText: "LinkedIn", // Added for translation
+                linkedinLinkText: "LinkedIn",
                 portfolioLinkText: "Portafolio: www.driann.com",
                 heroLocation: "Palermo, CABA, Argentina",
-                
+
                 featuredProjectsTitle: "Proyectos destacados",
-                featuredProjectsIntro: "", // Removed content as requested
+                gameProjectsTitle: "Proyectos de videojuegos",
+                audioForVideoProjectsTitle: "Audio para proyectos de video",
+                audioProjectsTitle: "Proyectos de audio",
 
-                // New Subsections
-                gameProjectsTitle: "Proyectos de videojuegos", // Renamed and reordered
-                audioForVideoProjectsTitle: "Audio para proyectos de video", // Renamed and reordered
-                audioProjectsTitle: "Proyectos de audio", // Added for SoundCloud
+                projSkeletonMasterTitle: "Skeleton Master (2024)",
+                projSkeletonMasterRole: "Rol: SFX, Música (FMOD en Unity)",
+                projSkeletonMasterDesc: "Adéntrate en un mundo tenebroso en el que eres un maestro de los esqueletos. Sobrevive tanto como puedas, al mando de tu ejército de no muertos. ¡Prepárate para una aventura inquietante con imágenes espeluznantes y música dinámica!",
+                projSkeletonMasterLink: "Jugar / Ver más ↗",
 
-                // Featured Projects Translations
                 projSuperiorRelativesTitle: "Superior relatives (2023)",
                 projSuperiorRelativesRole: "Rol: Productor Musical y Diseñador de Sonido",
                 projSuperiorRelativesDesc: "Juego de lucha multijugador local basado en memes. Creé efectos de sonido y una reversión del tema principal de \"Super Smash Bros: Brawl\".",
@@ -535,7 +577,7 @@
 
                 projEyeKillerTitle: "Eye killer (2024)",
                 projEyeKillerRole: "Rol: SFX, Música, Diseño de Juego, Programación, Arte de Entorno",
-                projEyeKillerDesc: "2D action platformer creado con Godot para la \"Acerola Jam 0\". Mi primera incursión en este motor y en el pixel art de entornos. Desarrollado en solitario. Disponible para Windows y Linux.",
+                projEyeKillerDesc: "Plataformero de acción 2D creado con Godot para la \"Acerola Jam 0\". Mi primera incursión en este motor y en el pixel art de entornos. Desarrollado en solitario. Disponible para Windows y Linux.",
                 projEyeKillerLink: "Jugar en itch.io ↗",
 
                 projFlappyTitle: "Just a really normal flappy game (2023)",
@@ -548,12 +590,10 @@
                 projBachacoDesc: "Un juego corto creado para la \"Brackeys Game Jam 2023.2\" con el tema \"Diving Deeper\". Desarrollado en colaboración con un artista 2D, marcando nuestra primera experiencia con Unity.",
                 projBachacoLink: "Jugar en itch.io ↗",
 
-                // Film Project Translations (now under Audio for Video Projects)
                 projLluviaVocesTitle: "Lluvia de voces - shortfilm (2022)",
                 projLluviaVocesRole: "Rol: ADR, Diseño de Sonido, Foley, Mezclador de Re-grabación, Edición de Diálogos",
                 projLluviaVocesDesc: "\"Un joven escritor intenta hacer una lluvia de ideas en su cuaderno, pero el doloroso recuerdo de su ex-novia genera una alucinación que le permite darse cuenta de que su dolor es la mejor inspiración\". No hubo rol de grabador de campo. Todos los sonidos fueron grabados o creados mediante síntesis de audio.",
                 projLluviaVocesLink: "Ver en YouTube ↗",
-                // End Featured Projects Translations
 
                 personalDescriptionTitle: "Sobre mí",
                 personalDescriptionContent: "Diseñador sonoro con 5 años de experiencia en música y sonido para videojuegos, cine y multimedia. Especializado en postproducción, producción musical e integración de audio (FMOD). Combino mi pasión por el sonido con una sólida experiencia en gestión de proyectos, atención al cliente y una gran adaptabilidad, buscando oportunidades desafiantes e inmediatas donde aplicar mi creatividad y habilidades técnicas.",
@@ -572,6 +612,7 @@
                     <li>Edición de audio, grabación, postproducción completa (edición de diálogos, ADR, Foley virtual, sincronización), limpieza y restauración para videos, radio y podcasts.</li>
                     <li>Coordinación de equipos multidisciplinarios y gestión logística de equipos técnicos para eventos y transmisiones.</li>
                 `,
+                jobAudioHeadReference: "Referencia: Angel Liendo, Vicerrector de la Universidad Audiovisual de Venezuela +58-412-0315551",
                 jobFreelanceFilmTitle: "Diseñador de sonido y compositor musical freelance",
                 jobFreelanceFilmDuration: "Proyectos Cinematográficos | 2020 - Presente",
                 jobFreelanceFilmDuties: `
@@ -598,6 +639,7 @@
                     <li>Corte de fiambres y manejo de máquina cortadora.</li>
                     <li>Atención al cliente, empaquetado, desempeño ágil bajo presión.</li>
                 `,
+                jobDeliReference: "Referencia: Hector, Encargado de fiambrería, Estancia San Francisco. 11-4787-1801",
                 jobCashierTitle: "Cajero / reponedor",
                 jobCashierDuration: "1440 Drugstore | Marzo - Abril 2025",
                 jobCashierDuties: `
@@ -633,7 +675,7 @@
                 skillsOtherToolsTitle: "Otros software y herramientas",
                 skillsLanguagesTitle: "Idiomas",
                 langSpanish: "Español (Nativo)",
-                langEnglish: "Inglés (C2 Proficient - <a href='https://cert.efset.org/Z4a9Xi' target='_blank' rel='noopener noreferrer' class='underline hover:text-cyan-800'>Certificado EFSET</a>)", // Corrected link structure
+                langEnglish: "Inglés (C2 Proficient - <a href='https://cert.efset.org/Z4a9Xi' target='_blank' rel='noopener noreferrer' class='underline hover:text-cyan-800'>Certificado EFSET</a>)",
                 skillsSoftSkillsTitle: "Habilidades clave y blandas",
                 softSkillSoundDesign: "Diseño de Sonido",
                 softSkillMusicProduction: "Producción Musical",
@@ -652,7 +694,6 @@
                 softSkillFastLearning: "Aprendizaje Rápido",
                 softSkillTimeManagement: "Gestión del Tiempo",
                 softSkillUnderPressure: "Trabajo bajo Presión",
-                // New technical skills translations
                 skillComputerScience: "Principios de Computer Science",
                 skillCRMSystems: "Sistemas CRM",
                 skillCameraKnowledge: "Conocimientos de Cámara",
@@ -671,13 +712,6 @@
                     <li>Carnet de manipulación de alimentos (Agencia Gubernamental de Control, CABA)</li>
                 `,
                 viewCert: "Ver Certificado",
-                
-                portfolioTitle: "Portafolio y otros enlaces",
-                portfolioIntro: "Enlaces a mi portafolio completo y otras plataformas.",
-                visitPortfolioBtn: "Visitar www.driann.com",
-                soundCloudBtn: "SoundCloud",
-                demoReelBtn: "Game Audio Demo Reel",
-
                 recommendationTitle: "Recomendación",
                 recommendationQuote: `"El trato con sus compañeros y superiores siempre fue amable y mostró una excelente disposición en todo cuanto desarrollaba. Es por ello, que como Vicerrector lo recomiendo ampliamente, ya que es un joven con don de gente y en lo particular, comprometido desde los valores humanos propios de quienes tienen esa sensibilidad en las relaciones laborales y profesionales."`,
                 recommendationAuthor: "- Angel Liendo, Vicerrector de la Universidad Audiovisual de Venezuela, 2024.",
@@ -686,8 +720,8 @@
                 contactIntro: "¡Hablemos! Estoy disponible para discutir oportunidades y proyectos.",
                 sendEmailBtn: "📧 Enviar Email",
                 connectLinkedInBtn: "Conectar en LinkedIn",
-                contactPhone: "Teléfono: <a href='tel:+5491135747987' class='text-cyan-600 hover:underline'>+54 9 11 3574 7987</a>", // Updated for translation and link
-                footerPortfolio: "Portafolio: www.driann.com" // Added portfolio link to footer
+                contactPhone: "Teléfono: <a href='tel:+5491135747987' class='text-cyan-600 hover:underline'>+54 9 11 3574 7987</a>",
+                footerPortfolio: "Portafolio: www.driann.com"
             },
             en: {
                 pageTitle: "Adrián Betancourt - Audio Professional & Multimedia Creative",
@@ -699,21 +733,22 @@
                 navSkills: "Skills",
                 navAddExp: "Additional Experience",
                 navContact: "Contact",
-                heroSubtitle: "Game Audio | Film Audio | Sound Design | Music Composer", // Updated
+                heroSubtitle: "Game Audio | Film Audio | Sound Design | Music Composer",
                 heroVideoCaption: "Featured Video: Game Audio Demo Reel",
-                linkedinLinkText: "LinkedIn", // Added for translation
+                linkedinLinkText: "LinkedIn",
                 portfolioLinkText: "Portfolio: www.driann.com",
                 heroLocation: "Palermo, CABA, Argentina",
 
                 featuredProjectsTitle: "Featured projects",
-                featuredProjectsIntro: "", // Removed content as requested
+                gameProjectsTitle: "Game projects",
+                audioForVideoProjectsTitle: "Audio for video projects",
+                audioProjectsTitle: "Audio projects",
 
-                // New Subsections
-                gameProjectsTitle: "Game projects", // Renamed and reordered
-                audioForVideoProjectsTitle: "Audio for video projects", // Renamed and reordered
-                audioProjectsTitle: "Audio projects", // Added for SoundCloud
+                projSkeletonMasterTitle: "Skeleton Master (2024)",
+                projSkeletonMasterRole: "Role: SFX, Music (FMOD in Unity)",
+                projSkeletonMasterDesc: "Step into a spooky and foggy world where you're a skeleton master. Command your undead army and survive as long as you can. With eerie visuals and dynamic music, prepare for a haunting adventure!",
+                projSkeletonMasterLink: "Play / View More ↗",
 
-                // Featured Projects Translations
                 projSuperiorRelativesTitle: "Superior relatives (2023)",
                 projSuperiorRelativesRole: "Role: Music Producer and Sound Designer",
                 projSuperiorRelativesDesc: "Local multiplayer fighting game based on memes. I created sound effects and a reversion of the main theme from \"Super Smash Bros: Brawl\".",
@@ -727,7 +762,7 @@
                 projEyeKillerTitle: "Eye killer (2024)",
                 projEyeKillerRole: "Role: SFX, Music, Game Design, Programming, Environment Art",
                 projEyeKillerDesc: "2D action platformer created with Godot for the \"Acerola Jam 0\". My first foray into this engine and environment pixel art. Developed solo. Available for Windows and Linux.",
-                projEyeKillerLink: "Play on itch.io ↗",
+                projEyeKillerLink: "Play on itch..io ↗",
 
                 projFlappyTitle: "Just a really normal flappy game (2023)",
                 projFlappyRole: "Role: SFX, Music Composition, and Dynamic Implementation",
@@ -739,12 +774,10 @@
                 projBachacoDesc: "A short game created for the \"Brackeys Game Jam 2023.2\" with the theme \"Diving Deeper\". Developed in collaboration with a 2D artist, marking our first experience with Unity.",
                 projBachacoLink: "Play on itch.io ↗",
 
-                // Film Project Translations (now under Audio for Video Projects)
                 projLluviaVocesTitle: "Lluvia de voces - shortfilm (2022)",
                 projLluviaVocesRole: "Role: ADR, Sound Design, Foley, Re-recording Mixer, Dialogue Editing",
                 projLluviaVocesDesc: "\"A young writer tries to brainstorm in his notebook, but the painful memory of his ex-girlfriend generates a hallucination that allows him to realize that his pain is the best inspiration\". There was no Field Recorder role. All sounds were recorded or created by audio synthesis.",
                 projLluviaVocesLink: "Watch on YouTube ↗",
-                // End Featured Projects Translations
 
                 personalDescriptionTitle: "About me",
                 personalDescriptionContent: "Sound designer with 5 years of experience in music and sound for video games, film, and multimedia. Specialized in post-production, music production, and audio integration (FMOD). I combine my passion for sound with solid experience in project management, customer service, and high adaptability, seeking challenging and immediate opportunities to apply my creativity and technical skills.",
@@ -763,6 +796,7 @@
                     <li>Audio editing, recording, complete post-production (dialogue editing, ADR, virtual Foley, synchronization), cleaning, and restoration for videos, radio, and podcasts.</li>
                     <li>Coordinación of multidisciplinary teams and logistical management of technical equipment for events and broadcasts.</li>
                 `,
+                jobAudioHeadReference: "Reference: Angel Liendo, Vice-Rector of the Audiovisual University of Venezuela +58-412-0315551",
                 jobFreelanceFilmTitle: "Freelance sound designer and music composer",
                 jobFreelanceFilmDuration: "Film Projects | 2020 - Present",
                 jobFreelanceFilmDuties: `
@@ -789,6 +823,7 @@
                     <li>Slicing various cold cuts and operating slicing machine.</li>
                     <li>Customer service by number, order packaging, and agile performance under pressure.</li>
                 `,
+                jobDeliReference: "Reference: Hector, Deli Manager, Estancia San Francisco. 11-4787-1801",
                 jobCashierTitle: "Cashier / stocker",
                 jobCashierDuration: "1440 Drugstore | March - April 2025",
                 jobCashierDuties: `
@@ -801,7 +836,7 @@
                 jobSalesDuties: `
                     <li>Management of inquiries regarding vehicle purchase/sale.</li>
                     <li>Negotiation and closing of operations with corporate clients.</li>
-                    <li>Handling multiple simultaneous tasks (databases, calls, system records, emails).</li>
+                    <li>Manejo de múltiples tareas simultáneas (databases, calls, system records, emails).</li>
                 `,
                 jobInterpreterTitle: "Bilingual interpreter (call center)",
                 jobInterpreterDuration: "TNI OUTSOURCING (Remote) | Nov 2024 - Jan 2025",
@@ -823,7 +858,7 @@
                 skillsOtherToolsTitle: "Other software & tools",
                 skillsLanguagesTitle: "Languages",
                 langSpanish: "Spanish (Native)",
-                langEnglish: "English (C2 Proficient - <a href='https://cert.efset.org/Z4a9Xi' target='_blank' rel='noopener noreferrer' class='underline hover:text-cyan-800'>Certificado EFSET</a>)", // Corrected link structure
+                langEnglish: "English (C2 Proficient - <a href='https://cert.efset.org/Z4a9Xi' target='_blank' rel='noopener noreferrer' class='underline hover:text-cyan-800'>EFSET Certified</a>)",
                 skillsSoftSkillsTitle: "Key & soft skills",
                 softSkillSoundDesign: "Sound Design",
                 softSkillMusicProduction: "Music Production",
@@ -842,7 +877,6 @@
                 softSkillFastLearning: "Fast Learning",
                 softSkillTimeManagement: "Time Management",
                 softSkillUnderPressure: "Work Under Pressure",
-                // New technical skills translations
                 skillComputerScience: "Computer Science Principles",
                 skillCRMSystems: "CRM Systems",
                 skillCameraKnowledge: "Camera Knowledge",
@@ -861,32 +895,23 @@
                     <li>Food Handler's Card (Government Agency of Control, CABA)</li>
                 `,
                 viewCert: "View Certificate",
-                
-                portfolioTitle: "Portfolio & other links",
-                portfolioIntro: "Links to my full portfolio and other platforms.",
-                visitPortfolioBtn: "Visit www.driann.com",
-                soundCloudBtn: "SoundCloud",
-                demoReelBtn: "Game Audio Demo Reel",
-
                 recommendationTitle: "Recommendation",
                 recommendationQuote: `"His treatment of colleagues and superiors was always kind, and he showed excellent disposition in everything he developed. Is for this reason, that as Vice-Rector, I highly recommend him, as he is a young man with a gift for people and, in particular, committed from the human values inherent in those who have that sensitivity in work and professional relationships."`,
                 recommendationAuthor: "- Angel Liendo, Vice-Rector of the Audiovisual University of Venezuela, 2024.",
                 contactTitle: "Contact",
                 sendEmailBtn: "📧 Send Email",
                 connectLinkedInBtn: "Connect on LinkedIn",
-                contactPhone: "Phone: <a href='tel:+5491135747987' class='text-cyan-600 hover:underline'>+54 9 11 3574 7987</a>", // Updated for translation and link
-                footerPortfolio: "Portfolio: www.driann.com" // Added portfolio link to footer
+                contactPhone: "Phone: <a href='tel:+5491135747987' class='text-cyan-600 hover:underline'>+54 9 11 3574 7987</a>",
+                footerPortfolio: "Portfolio: www.driann.com"
             }
         };
 
         let currentLang = 'es'; // Default language
 
-        // Function to update content based on language
         function updateContent(lang) {
             document.querySelectorAll('[data-lang-key]').forEach(element => {
                 const key = element.dataset.langKey;
                 if (content[lang][key]) {
-                    // Check if the content is HTML (e.g., for list items, tags, or specific phone text)
                     if (element.tagName === 'UL' || element.tagName === 'LI' || element.classList.contains('tag') || element.classList.contains('contact-phone-text')) {
                         element.innerHTML = content[lang][key];
                     } else {
@@ -894,107 +919,65 @@
                     }
                 }
             });
-            // Special handling for title tag
             document.title = content[lang].pageTitle;
-
-            // Update active language toggle buttons
             document.querySelectorAll('.language-toggle').forEach(button => {
-                if (button.dataset.lang === lang) {
-                    button.classList.add('active');
-                } else {
-                    button.classList.remove('active');
-                }
+                button.classList.toggle('active', button.dataset.lang === lang);
             });
-            currentLang = lang; // Update global language state
+            currentLang = lang;
         }
 
-        // Event listeners for language toggle buttons (desktop)
         document.getElementById('lang-es').addEventListener('click', () => updateContent('es'));
         document.getElementById('lang-en').addEventListener('click', () => updateContent('en'));
-
-        // Event listeners for language toggle buttons (mobile)
         document.getElementById('lang-es-mobile').addEventListener('click', () => updateContent('es'));
         document.getElementById('lang-en-mobile').addEventListener('click', () => updateContent('en'));
 
-
-        // Mobile menu toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
-        // Close mobile menu on link click
         document.querySelectorAll('#mobile-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.add('hidden');
             });
         });
 
-        // Tab functionality for Experiencia en Audio
         const tabButtons = document.querySelectorAll('.tab-button');
         const tabContents = document.querySelectorAll('.tab-content');
-
         tabButtons.forEach(button => {
             button.addEventListener('click', () => {
                 const tabId = button.dataset.tab;
-
-                tabButtons.forEach(btn => {
-                    btn.classList.remove('active');
-                    btn.classList.remove('text-cyan-600', 'border-cyan-600', 'bg-cyan-50');
-                });
+                tabButtons.forEach(btn => btn.classList.remove('active', 'text-cyan-600', 'border-cyan-600', 'bg-cyan-50'));
                 button.classList.add('active');
-                
-                tabContents.forEach(content => {
-                    if (content.id === tabId) {
-                        content.classList.remove('hidden');
-                    } else {
-                        content.classList.add('hidden');
-                    }
-                });
+                tabContents.forEach(content => content.classList.toggle('hidden', content.id !== tabId));
             });
         });
 
-        // Active nav link highlighting on scroll (simplified)
         const sections = document.querySelectorAll('main section[id]');
         const navLinks = document.querySelectorAll('header nav a');
         const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
-
         function changeNavOnScroll() {
             let currentSectionId = '';
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 80) { // 80px offset for sticky header
+                if (pageYOffset >= section.offsetTop - 80) {
                     currentSectionId = section.getAttribute('id');
                 }
             });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSectionId}`) {
-                    link.classList.add('active');
-                }
-            });
-            mobileNavLinks.forEach(link => {
-                link.classList.remove('bg-cyan-100', 'text-cyan-700', 'font-semibold'); // Example active style for mobile
-                 if (link.getAttribute('href') === `#${currentSectionId}`) {
-                    link.classList.add('bg-cyan-100', 'text-cyan-700', 'font-semibold');
-                }
-            });
+            navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === `#${currentSectionId}`));
+            mobileNavLinks.forEach(link => link.classList.toggle('bg-cyan-100', link.getAttribute('href') === `#${currentSectionId}`));
+            mobileNavLinks.forEach(link => link.classList.toggle('text-cyan-700', link.getAttribute('href') === `#${currentSectionId}`));
+            mobileNavLinks.forEach(link => link.classList.toggle('font-semibold', link.getAttribute('href') === `#${currentSectionId}`));
         }
         window.addEventListener('scroll', changeNavOnScroll);
-        changeNavOnScroll(); // Initial check
-
-        // Initial content load
-        updateContent(currentLang);
-
-        // Manually trigger click on the first tab of Experiencia en Audio to show its content on load
+        
         document.addEventListener('DOMContentLoaded', () => {
+            updateContent(currentLang); // Initial content load based on default language
+            changeNavOnScroll(); // Initial nav link state
             const firstAudioTabButton = document.querySelector('#experiencia-audio .tab-button.active');
             if (firstAudioTabButton) {
                 firstAudioTabButton.click();
             }
         });
-
     </script>
 </body>
 </html>
