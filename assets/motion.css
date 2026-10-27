@@ -173,3 +173,8 @@
   .js .reveal { transform: none; }
   .progress { display: none; }
 }
+
+/* Portrait: tilted card that straightens on hover */
+.portrait { transform: rotate(-2.5deg); transition: transform .5s var(--ease-spring), box-shadow .5s var(--ease-out); box-shadow: 0 24px 48px -28px rgba(19, 35, 58, .45); }
+.portrait:hover { transform: rotate(0) scale(1.02); }
+@media (prefers-reduced-motion: reduce) { .portrait { transform: none; } }
