@@ -328,3 +328,40 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 /* Home: portrait in the About section */
 .portrait { margin: 0 0 28px; width: min(240px, 60%); padding: 6px; border-radius: 24px; background: var(--grad, linear-gradient(90deg, #ef4b50, #3fe6dd)); }
 .portrait img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 18px; }
+/* Nav: pages grouped as tabs; Contact is a distinct action (scrolls on the same page) */
+.nav { gap: 14px; }
+.nav-pages { display: flex; align-items: center; gap: 2px; padding: 4px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); }
+.nav .nav-pages a { padding: 7px 14px; border-radius: 999px; color: var(--muted); font-weight: 500; box-shadow: none; }
+.nav .nav-pages a:hover { color: var(--text); background: rgba(255, 255, 255, .7); }
+.nav .nav-pages a[aria-current="page"] { background: var(--surface); color: var(--text); font-weight: 600; box-shadow: 0 2px 8px -3px rgba(19, 35, 58, .3); }
+.nav .nav-cta {
+  display: inline-flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: 999px;
+  border: 1.5px solid var(--accent-ink); color: var(--accent-ink); font-weight: 600;
+}
+.nav .nav-cta svg { width: 16px; height: 16px; }
+.nav .nav-cta:hover { background: var(--accent-ink); color: #fff; }
+
+/* Home: short About preview */
+.about-teaser { display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; }
+.about-teaser .portrait { margin: 0; width: 220px; }
+.about-teaser h2 { font-size: clamp(28px, 3.4vw, 40px); font-weight: 600; margin: 10px 0 16px; }
+.about-teaser .lead { color: var(--text); font-size: 18px; max-width: 620px; }
+
+/* About page hero portrait */
+.about-hero .portrait-lg { width: min(360px, 100%); margin: 0 auto; }
+.about-hero .about-copy p { color: var(--muted); }
+.about-hero .about-copy p.lead { color: var(--text); font-size: 19px; }
+
+/* Contact section briefly highlights when reached from the nav */
+.contact:target .email-big { animation: ping 1.2s ease-out 1; }
+@keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(239, 75, 80, .45); } 100% { box-shadow: 0 0 0 18px rgba(239, 75, 80, 0); } }
+
+@media (max-width: 960px) { .nav .nav-pages a { padding: 7px 10px; } }
+@media (max-width: 720px) {
+  .nav-pages { flex-direction: column; align-items: stretch; padding: 0; background: none; border: 0; border-radius: 0; gap: 0; }
+  .nav .nav-pages a { border-radius: 0; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 16px; }
+  .nav .nav-pages a[aria-current="page"] { background: none; box-shadow: inset 3px 0 0 var(--accent); padding-left: 12px; }
+  .nav .nav-cta { justify-content: center; margin-top: 12px; padding: 12px; font-size: 16px; border-bottom: 1.5px solid var(--accent-ink); }
+  .about-teaser { grid-template-columns: 1fr; gap: 28px; }
+  .about-teaser .portrait { width: 180px; }
+}

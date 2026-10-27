@@ -40,12 +40,13 @@
     </a>
     <div class="header-tools">
       <nav class="nav" id="nav" aria-label="Main">
-        <a href="game-audio/">Game audio</a>
-        <a href="film-audio/"><span class="es">Audio para cine</span><span class="en">Film audio</span></a>
-        <a href="music/"><span class="es">Música</span><span class="en">Music</span></a>
-        <a href="#about"><span class="es">Sobre mí</span><span class="en">About</span></a>
-        <a href="#skills"><span class="es">Habilidades</span><span class="en">Skills</span></a>
-        <a href="#contact"><span class="es">Contacto</span><span class="en">Contact</span></a>
+        <div class="nav-pages">
+          <a href="game-audio/">Game audio</a>
+          <a href="film-audio/"><span class="es">Audio para cine</span><span class="en">Film audio</span></a>
+          <a href="music/"><span class="es">Música</span><span class="en">Music</span></a>
+          <a href="about/"><span class="es">Sobre mí</span><span class="en">About</span></a>
+        </div>
+        <a class="nav-cta" href="#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="es">Contacto</span><span class="en">Contact</span></a>
       </nav>
       <div class="lang" role="group" aria-label="Language / Idioma">
         <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
@@ -137,133 +138,27 @@
     </div>
   </section>
 
-  <!-- About -->
+  <!-- About preview -->
   <section id="about" class="band">
-    <div class="wrap">
-      <div class="about">
-        <div class="about-copy reveal">
-          <figure class="portrait">
-            <img src="assets/adrian.jpg" width="720" height="960" loading="lazy" alt="Adrián Betancourt, with pink hair and round glasses, in front of a colorful mural">
-          </figure>
-          <span class="mono kicker">02 — <span class="es">Sobre mí</span><span class="en">About</span></span>
-          <h2><span class="es">Sonido, tecnología y trabajo en equipo</span><span class="en">Sound, tech and teamwork</span></h2>
-          <p class="lead"><span class="es">Soy diseñador sonoro y compositor. Trabajo en audio desde 2018: primero en postproducción y transmisiones en vivo, y después en videojuegos.</span><span class="en">I'm a sound designer and composer. I've worked in audio since 2018, first in post-production and live broadcasts, then in games.</span></p>
-          <p><span class="es">Participé en más de diez game jams. Me interesa tanto dar forma al sonido como conectar sistemas, documentar decisiones y ayudar a que un equipo avance. Además tengo experiencia en coordinación de equipos y atención al cliente bilingüe.</span><span class="en">I've joined more than ten game jams. I care as much about shaping sound as about connecting systems, documenting decisions and helping a team move forward. I also bring experience in team coordination and bilingual customer support.</span></p>
-          <div class="facts">
-            <span class="tag"><span class="es">Español nativo</span><span class="en">Native Spanish</span></span>
-            <a class="tag" href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener"><span class="es">Inglés C2 · EF SET ↗</span><span class="en">English C2 · EF SET ↗</span></a>
-            <span class="tag">Buenos Aires, AR</span>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="job reveal">
-            <time class="mono"><span class="es">2021 — hoy</span><span class="en">2021 — present</span></time>
-            <h3><span class="es">Audio para videojuegos · Freelance y jams</span><span class="en">Game audio · Freelance & jams</span></h3>
-            <div class="org"><span class="es">SFX, música e implementación con FMOD y Godot en más de 10 game jams.</span><span class="en">SFX, music and FMOD/Godot implementation across 10+ game jams.</span> <a href="game-audio/#experience" style="color:var(--accent-ink);font-weight:600;text-decoration:none"><span class="es">Ver más →</span><span class="en">More →</span></a></div>
-          </div>
-          <div class="job reveal">
-            <time class="mono"><span class="es">2020 — hoy</span><span class="en">2020 — present</span></time>
-            <h3><span class="es">Sonido para cine · Freelance</span><span class="en">Film sound · Freelance</span></h3>
-            <div class="org"><span class="es">Grabación en set, postproducción, mezcla Dolby y música para cortos y documentales.</span><span class="en">On-set recording, post-production, Dolby mixing and music for shorts and documentaries.</span> <a href="film-audio/#experience" style="color:var(--accent-ink);font-weight:600;text-decoration:none"><span class="es">Ver más →</span><span class="en">More →</span></a></div>
-          </div>
-          <div class="job reveal">
-            <time class="mono">2018 — 2024</time>
-            <h3><span class="es">Jefe de Audio</span><span class="en">Head of Audio</span></h3>
-            <div class="org"><span class="es">Universidad Audiovisual de Venezuela: postproducción, TV en vivo y coordinación técnica.</span><span class="en">Audiovisual University of Venezuela: post-production, live TV and technical coordination.</span> <a href="film-audio/#experience" style="color:var(--accent-ink);font-weight:600;text-decoration:none"><span class="es">Ver más →</span><span class="en">More →</span></a></div>
-          </div>
-        </div>
-      </div>
-
-      <figure class="quote reveal">
-        <blockquote>
-          <span class="es">«El trato con sus compañeros y superiores siempre fue amable y mostró una excelente disposición en todo cuanto desarrollaba. […] Lo recomiendo ampliamente, ya que es un joven con don de gente.»</span>
-          <span class="en">"He was always kind to his colleagues and superiors and showed an excellent attitude in everything he worked on. […] I highly recommend him; he is a young man with a real gift for people."</span>
-        </blockquote>
-        <figcaption>
-          <span class="es">Angel Liendo, Vicerrector · Universidad Audiovisual de Venezuela, 2024 · </span><span class="en">Angel Liendo, Vice-Rector · Audiovisual University of Venezuela, 2024 · </span>
-          <a href="https://drive.google.com/file/d/1dNSRsVSnnZtnG9VpDo7w1AXEGUKHSeKX/view?usp=sharing" target="_blank" rel="noopener"><span class="es">Carta completa ↗</span><span class="en">Full letter (ES) ↗</span></a>
-        </figcaption>
+    <div class="wrap about-teaser reveal">
+      <figure class="portrait">
+        <img src="assets/adrian.jpg" width="720" height="960" loading="lazy" alt="Adrián Betancourt, with pink hair and round glasses, in front of a colorful mural">
       </figure>
-    </div>
-  </section>
-
-  <!-- Skills & certifications -->
-  <section id="skills">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <div>
-          <span class="mono kicker">03 — <span class="es">Habilidades</span><span class="en">Skills</span></span>
-          <h2><span class="es">Habilidades y certificaciones</span><span class="en">Skills & certifications</span></h2>
-        </div>
-        <p><span class="es">Las herramientas que uso a diario y cómo trabajo con un equipo.</span><span class="en">The tools I use every day and how I work with a team.</span></p>
-      </div>
-
-      <div class="skillset">
-        <div class="panel reveal">
-          <span class="mono kicker"><span class="es">Técnicas</span><span class="en">Hard skills</span></span>
-          <h3><span class="es">Lo que sé hacer</span><span class="en">What I can do</span></h3>
-          <div class="skill-group"><h4 class="mono"><span class="es">Sonido</span><span class="en">Sound</span></h4><div class="tags"><span class="tag"><span class="es">Diseño sonoro</span><span class="en">Sound design</span></span><span class="tag"><span class="es">Composición</span><span class="en">Composition</span></span><span class="tag">Foley</span><span class="tag">ADR</span><span class="tag"><span class="es">Edición de diálogos</span><span class="en">Dialogue editing</span></span><span class="tag"><span class="es">Mezcla y restauración</span><span class="en">Mixing & restoration</span></span><span class="tag"><span class="es">Audio adaptativo</span><span class="en">Adaptive audio</span></span></div></div>
-          <div class="skill-group"><h4 class="mono">Audio</h4><div class="tags"><span class="tag">Reaper</span><span class="tag">Ableton Live</span><span class="tag">Adobe Audition</span><span class="tag">iZotope RX</span><span class="tag">Dolby Atmos Composer</span><span class="tag">Soundly</span><span class="tag">Spitfire LABS</span></div></div>
-          <div class="skill-group"><h4 class="mono"><span class="es">Videojuegos</span><span class="en">Game dev</span></h4><div class="tags"><span class="tag">FMOD Studio</span><span class="tag">Godot / GDScript</span><span class="tag"><span class="es">Unity / C# básico</span><span class="en">Unity / basic C#</span></span><span class="tag">Git / GitHub</span></div></div>
-          <div class="skill-group"><h4 class="mono"><span class="es">Video y streaming</span><span class="en">Video & streaming</span></h4><div class="tags"><span class="tag">Premiere Pro</span><span class="tag">DaVinci Resolve</span><span class="tag">OBS</span><span class="tag">vMix</span></div></div>
-          <div class="skill-group"><h4 class="mono"><span class="es">Organización</span><span class="en">Workflow</span></h4><div class="tags"><span class="tag">Notion</span><span class="tag">Trello</span><span class="tag">Obsidian</span><span class="tag">Google Workspace</span><span class="tag">Excel</span></div></div>
-        </div>
-
-        <div class="panel reveal">
-          <span class="mono kicker"><span class="es">Blandas</span><span class="en">Soft skills</span></span>
-          <h3><span class="es">Cómo trabajo</span><span class="en">How I work</span></h3>
-          <ul class="soft">
-            <li><b><span class="es">Trabajo en equipo</span><span class="en">Teamwork</span></b><span><span class="es">Más de diez game jams con artistas, diseñadores y programadores.</span><span class="en">Ten-plus game jams alongside artists, designers and programmers.</span></span></li>
-            <li><b><span class="es">Liderazgo y coordinación</span><span class="en">Leadership & coordination</span></b><span><span class="es">Coordiné equipos de audio y hoy lidero el proyecto Monopodo.</span><span class="en">Coordinated audio teams and now lead the Monopodo project.</span></span></li>
-            <li><b><span class="es">Comunicación bilingüe</span><span class="en">Bilingual communication</span></b><span><span class="es">Español nativo e inglés C2; experiencia como intérprete y en atención al cliente.</span><span class="en">Native Spanish and C2 English; experience as an interpreter and in customer support.</span></span></li>
-            <li><b><span class="es">Trabajo bajo presión</span><span class="en">Calm under pressure</span></b><span><span class="es">TV en vivo, conciertos y plazos de jam de 48 horas a una semana.</span><span class="en">Live TV, concerts and jam deadlines from 48 hours to one week.</span></span></li>
-            <li><b><span class="es">Resolución de problemas</span><span class="en">Problem solving</span></b><span><span class="es">Encontrar la falla, probar y dejar documentada la solución.</span><span class="en">Find the fault, test the fix and document it.</span></span></li>
-            <li><b><span class="es">Enseñanza y paciencia</span><span class="en">Teaching & patience</span></b><span><span class="es">Ocho años dando clases de guitarra a más de 30 alumnos.</span><span class="en">Eight years teaching guitar to more than 30 students.</span></span></li>
-          </ul>
-        </div>
-      </div>
-
-      <h3 class="certs-head reveal"><span class="es">Certificaciones</span><span class="en">Certifications</span></h3>
-      <div class="certs">
-        <div class="cert-main reveal">
-          <span class="level">C2</span>
-          <h4><span class="es">Inglés · Proficient</span><span class="en">English · Proficient</span></h4>
-          <p><span class="es">EF SET · 72/100 · febrero 2024</span><span class="en">EF SET · 72/100 · February 2024</span></p>
-          <a href="https://cert.efset.org/Z4a9Xi" target="_blank" rel="noopener"><span class="es">Ver certificado ↗</span><span class="en">View certificate ↗</span></a>
-        </div>
-
-        <div class="panel reveal">
-          <span class="mono kicker"><span class="es">Audio y desarrollo de juegos</span><span class="en">Game audio & development</span></span>
-          <ul class="cert-list" style="margin-top:16px">
-            <li><b><span class="es">Audio para videojuegos: Técnicas de diseño sonoro</span><span class="en">Game Audio: Sound Design Techniques</span></b><span class="meta">Platzi · 2023 · 18 h</span></li>
-            <li><b><span class="es">Audio para videojuegos: Implementación</span><span class="en">Game Audio: Implementation</span></b><span class="meta">Platzi · 2022 · 13 h</span></li>
-            <li><b><span class="es">Audio para videojuegos: Fundamentos de diseño sonoro</span><span class="en">Game Audio: Sound Design Fundamentals</span></b><span class="meta">Platzi · 2022 · 9 h</span></li>
-            <li><b><span class="es">Música para videojuegos</span><span class="en">Music for Video Games</span></b><span class="meta">Platzi · 2023 · 7 h</span></li>
-            <li><b><span class="es">Taller de Narrativa Sonora</span><span class="en">Sound Storytelling Workshop</span></b><span class="meta">Prometeo Films · 2024 · 20 h</span></li>
-            <li><b><span class="es">Programación Básica</span><span class="en">Programming Basics</span></b><span class="meta">Platzi · 2024 · 29 h</span></li>
-            <li><b>C#</b><span class="meta">SoloLearn · 2023</span></li>
-            <li><b>Global Game Jam 2024</b><span class="meta"><span class="es">Participación · sede Lara Game Jam</span><span class="en">Participant · Lara Game Jam site</span></span></li>
-          </ul>
-        </div>
-
-        <div class="panel reveal">
-          <span class="mono kicker"><span class="es">Idiomas y organización</span><span class="en">Language & workflow</span></span>
-          <ul class="cert-list" style="margin-top:16px">
-            <li><b><span class="es">Inglés Práctico y Conversacional</span><span class="en">Practical & Conversational English</span></b><span class="meta">Platzi · 2024</span><a href="https://platzi.com/p/drianbetancourt/curso/10332-ingles-conversacional/diploma/detalle/" target="_blank" rel="noopener"><span class="es">Ver diploma ↗</span><span class="en">View diploma ↗</span></a></li>
-            <li><b><span class="es">Excel: Fundamentos y Formato</span><span class="en">Excel: Fundamentals & Formatting</span></b><span class="meta">Platzi · 2024</span><a href="https://platzi.com/p/drianbetancourt/curso/3639-excel-intro/diploma/detalle/" target="_blank" rel="noopener"><span class="es">Ver diploma ↗</span><span class="en">View diploma ↗</span></a></li>
-            <li><b><span class="es">Gestión Efectiva del Tiempo</span><span class="en">Effective Time Management</span></b><span class="meta">Platzi · 2023</span><a href="https://platzi.com/p/drianbetancourt/curso/1749-course/diploma/detalle/" target="_blank" rel="noopener"><span class="es">Ver diploma ↗</span><span class="en">View diploma ↗</span></a></li>
-          </ul>
-          <p class="muted" style="margin:18px 0 0;font-size:14px"><a href="https://platzi.com/p/drianbetancourt/" target="_blank" rel="noopener" style="color:var(--accent-ink);font-weight:600;text-decoration:none"><span class="es">Todos mis diplomas en Platzi ↗</span><span class="en">All my Platzi diplomas ↗</span></a></p>
+      <div>
+        <span class="mono kicker">02 — <span class="es">Sobre mí</span><span class="en">About</span></span>
+        <h2><span class="es">Sonido, tecnología y trabajo en equipo</span><span class="en">Sound, tech and teamwork</span></h2>
+        <p class="lead"><span class="es">Soy diseñador sonoro y compositor. Trabajo en audio desde 2018: primero en postproducción y transmisiones en vivo, y después en videojuegos.</span><span class="en">I'm a sound designer and composer. I've worked in audio since 2018, first in post-production and live broadcasts, then in games.</span></p>
+        <div class="actions">
+          <a class="btn primary" href="about/"><span class="es">Más sobre mí</span><span class="en">More about me</span> <span aria-hidden="true">→</span></a>
+          <a class="btn" href="about/#skills"><span class="es">Habilidades y certificaciones</span><span class="en">Skills & certifications</span> <span aria-hidden="true">→</span></a>
         </div>
       </div>
     </div>
   </section>
-
   <!-- Contact -->
   <section id="contact" class="band contact">
     <div class="wrap reveal">
-      <span class="mono kicker">04 — <span class="es">Contacto</span><span class="en">Contact</span></span>
+      <span class="mono kicker">03 — <span class="es">Contacto</span><span class="en">Contact</span></span>
       <h2><span class="es">Hablemos de tu<br><span class="accent">próximo proyecto.</span></span><span class="en">Let's talk about<br><span class="accent">your next project.</span></span></h2>
       <p><span class="es">Disponible para audio, música y proyectos en equipo.</span><span class="en">Available for audio, music and team projects.</span></p>
       <a class="email-big" href="mailto:contact@driann.com">contact@driann.com</a>
