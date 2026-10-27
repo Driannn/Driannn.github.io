@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="es" data-lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#f5fafa">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Game Audio — Adrián Betancourt</title>
+<meta name="description" content="Game audio by Adrián Betancourt: sound design, adaptive music and FMOD/Godot implementation for Monopodo, EyeKiller, Paper Pals and more.">
+<meta property="og:title" content="Game Audio — Adrián Betancourt">
+<meta property="og:description" content="Sound design, adaptive music and implementation for games.">
+<meta property="og:image" content="https://driann.com/assets/monopodo-room.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ef4b50'/%3E%3Cg fill='%23ffffff'%3E%3Crect x='7' y='13' width='3' height='6' rx='1.5'/%3E%3Crect x='12' y='8' width='3' height='16' rx='1.5'/%3E%3Crect x='17' y='11' width='3' height='10' rx='1.5'/%3E%3Crect x='22' y='14' width='3' height='4' rx='1.5'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script>
+  (function () {
+    var lang;
+    try { lang = localStorage.getItem('lang'); } catch (e) {}
+    if (lang !== 'es' && lang !== 'en') lang = /^es/i.test(navigator.language || '') ? 'es' : 'en';
+    document.documentElement.setAttribute('data-lang', lang);
+    document.documentElement.setAttribute('lang', lang);
+  })();
+</script>
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<script>document.documentElement.classList.add('js');</script>
+<a class="skip" href="#work"><span class="es">Saltar al contenido</span><span class="en">Skip to content</span></a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="../" aria-label="Adrián Betancourt — home">
+      <span class="brand-mark" aria-hidden="true"><i style="height:40%"></i><i style="height:90%"></i><i style="height:60%"></i><i style="height:100%"></i><i style="height:35%"></i></span>
+      driann
+    </a>
+    <div class="header-tools">
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="../"><span class="es">Inicio</span><span class="en">Home</span></a>
+        <a href="../game-audio/" aria-current="page">Game audio</a>
+        <a href="../film-audio/"><span class="es">Audio para cine</span><span class="en">Film audio</span></a>
+        <a href="#contact"><span class="es">Contacto</span><span class="en">Contact</span></a>
+      </nav>
+      <div class="lang" role="group" aria-label="Language / Idioma">
+        <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
+        <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <a class="back" href="../">← <span class="es">Todo mi trabajo</span><span class="en">All my work</span></a>
+        <div class="page-head" style="padding:20px 0 0">
+          <div class="eyebrow mono">SFX · Adaptive music · FMOD · Godot</div>
+          <h1>Game audio<span class="accent">.</span></h1>
+          <p class="hero-lead">
+            <span class="es">Diseño sonoro, música adaptativa e implementación para videojuegos. Más de diez game jams, muchas veces también en <strong>diseño, programación y dirección</strong> del proyecto.</span>
+            <span class="en">Sound design, adaptive music and implementation for games. Ten-plus game jams, often also covering <strong>design, programming and project lead</strong>.</span>
+          </p>
+        </div>
+      </div>
+      <div>
+        <button class="video hero-video" type="button" data-yt="wYpyiog8Tpc" aria-label="Play game audio demo reel">
+          <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+        </button>
+      </div>
+    </div>
+    <div class="wave" id="wave" aria-hidden="true"></div>
+  </div>
+
+  <!-- Games -->
+  <section id="work">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="mono kicker">01 — <span class="es">Videojuegos</span><span class="en">Games</span></span>
+          <h2><span class="es">Proyectos</span><span class="en">Projects</span></h2>
+        </div>
+        <p><span class="es">Game jams y proyectos en equipo donde hice audio, música y muchas veces también diseño y desarrollo.</span><span class="en">Game jams and team projects where I did audio and music, and often design and development too.</span></p>
+      </div>
+
+      <article class="featured reveal" aria-labelledby="monopodo-title">
+        <div class="featured-media">
+          <img src="../assets/monopodo-room.jpg" width="1280" height="720" alt="Monopodo: an illustrated room full of suspicious objects, with a VHS effect">
+          <span class="badge mono"><span class="es">En incubación · Game Jam Plus 26/27</span><span class="en">In incubation · Game Jam Plus 26/27</span></span>
+        </div>
+        <div class="featured-body">
+          <span class="mono muted">Godot · Web & mobile · 2026</span>
+          <h3 id="monopodo-title">Monopodo</h3>
+          <p>
+            <span class="es">Juego 2D de exploración y folk horror inspirado en el Saci Pererê. En cada bucle los objetos de la habitación cambian de rol: uno esconde la pipa que necesitas para escapar y otro te mata.</span>
+            <span class="en">A 2D exploration and folk horror game inspired by Brazil's Saci Pererê. Every loop, the objects in the room swap roles: one hides the pipe you need to escape, another kills you.</span>
+          </p>
+          <p class="role">
+            <span class="es"><b>Mi rol:</b> liderazgo del equipo y project management, game design, música, SFX y mezcla, integración en Godot.</span>
+            <span class="en"><b>My role:</b> team lead and project management, game design, music, SFX and mixing, Godot integration.</span>
+          </p>
+          <div class="tags"><span class="tag">Godot 4</span><span class="tag">GDScript</span><span class="tag">Shaders</span><span class="tag">EN / ES / PT-BR</span><span class="tag">GitHub Actions</span></div>
+          <details>
+            <summary><span class="es">Cómo lo hicimos</span><span class="en">How we built it</span></summary>
+            <ul class="es">
+              <li>Dirigí la implementación con asistencia de IA (Claude escribió el código a partir de mis indicaciones) e integré y ajusté todo en Godot.</li>
+              <li>Flujo de pantallas, habitaciones, puertas y puntos de aparición; controles de teclado, gamepad y táctil.</li>
+              <li>Música y efectos con crossfade, mezcla en ejecución y herramientas de textos y traducción.</li>
+              <li>Equipo Kikiriwiki: Odlanier Delgado, José Julián Caicaguare, Edward Sánchez, Louise y Ghiliany Castro.</li>
+            </ul>
+            <ul class="en">
+              <li>I directed an AI-assisted implementation (Claude wrote the code from my direction) and integrated and tuned everything in Godot.</li>
+              <li>Screen flow, rooms, doors and spawn points; keyboard, gamepad and touch controls.</li>
+              <li>Music and SFX with crossfades, runtime mixing, and in-editor text and localization tools.</li>
+              <li>Team Kikiriwiki: Odlanier Delgado, José Julián Caicaguare, Edward Sánchez, Louise and Ghiliany Castro.</li>
+            </ul>
+          </details>
+          <div class="links"><a href="https://driann.itch.io/monopodo" target="_blank" rel="noopener"><span class="es">Jugar en itch.io ↗</span><span class="en">Play on itch.io ↗</span></a></div>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article class="card reveal">
+          <img class="thumb" src="../assets/paper-pals.jpg" width="1280" height="720" loading="lazy" alt="Paper Pals: illustrated panels with three paper characters">
+          <div class="card-body">
+            <div class="card-top mono"><span>Godot · 2.5D</span><span>2024</span></div>
+            <h3>Paper Pals</h3>
+            <p><span class="es">Plataformas 2.5D hecho en una semana para la Level Up Game Jam. Nuestra primera vez con Godot 3D.</span><span class="en">A 2.5D platformer made in one week for Level Up Game Jam. Our first time with Godot 3D.</span></p>
+            <p class="role"><span class="es">Sonido, música, programación, diseño de nivel y PM</span><span class="en">Sound, music, programming, level design and PM</span></p>
+            <div class="links"><a href="https://driann.itch.io/paper-pals" target="_blank" rel="noopener">itch.io ↗</a><a href="https://www.youtube.com/watch?v=-QqvRrbSvNY" target="_blank" rel="noopener">Video ↗</a></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <img class="thumb" src="../assets/eyekiller.jpg" width="1280" height="720" loading="lazy" alt="EyeKiller: sword-wielding character in a dark pixel-art level">
+          <div class="card-body">
+            <div class="card-top mono"><span>Godot · 2D action</span><span>2024</span></div>
+            <h3>EyeKiller</h3>
+            <p><span class="es">Plataformas de acción hecho en solitario para la Acerola Jam 0. Mi primer juego en Godot y mi primer pixel art de entornos.</span><span class="en">A solo-developed action platformer for Acerola Jam 0. My first Godot game and my first environment pixel art.</span></p>
+            <p class="role"><span class="es">SFX, música, game design y programación</span><span class="en">SFX, music, game design and programming</span></p>
+            <div class="links"><a href="https://driann.itch.io/eyekiller" target="_blank" rel="noopener">itch.io ↗</a><a href="https://www.youtube.com/watch?v=9JjPaSZs7Tw" target="_blank" rel="noopener">Video ↗</a></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <button class="video" type="button" data-yt="K6UF9vBsI_g" aria-label="Play Skeleton Master video">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <div class="card-body">
+            <div class="card-top mono"><span>Unity · FMOD</span><span>2024</span></div>
+            <h3>Skeleton Master</h3>
+            <p><span class="es">Comandas un ejército de no muertos en un mundo tenebroso y sobrevives todo lo que puedas, con música dinámica.</span><span class="en">Command an undead army in a foggy, spooky world and survive as long as you can, with dynamic music.</span></p>
+            <p class="role"><span class="es">SFX y música (FMOD en Unity)</span><span class="en">SFX and music (FMOD in Unity)</span></p>
+            <div class="links"><a href="https://aesthezel.itch.io/undead-carnival" target="_blank" rel="noopener"><span class="es">En itch.io como Undead Carnival ↗</span><span class="en">On itch.io as Undead Carnival ↗</span></a></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <button class="video" type="button" data-yt="vbuhvKMrB4s" aria-label="Play Superior Relatives video">
+            <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+          </button>
+          <div class="card-body">
+            <div class="card-top mono"><span>Multiplayer · Epic Games Store</span><span>2023</span></div>
+            <h3>Superior Relatives</h3>
+            <p><span class="es">Juego de peleas multijugador de memes para hasta 4 jugadores. Hice los efectos de sonido y una versión del tema principal de Super Smash Bros. Brawl.</span><span class="en">A meme multiplayer fighting game for up to 4 players. I made the sound effects and a cover of the Super Smash Bros. Brawl main theme.</span></p>
+            <p class="role"><span class="es">Producción musical y diseño sonoro</span><span class="en">Music production and sound design</span></p>
+            <div class="links"><a href="https://store.epicgames.com/en-US/p/superior-crack-relatives-a75621" target="_blank" rel="noopener">Epic Games Store ↗</a></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <img class="thumb" src="../assets/flappy.jpg" width="630" height="500" loading="lazy" alt="Just a really normal flappy game cover art">
+          <div class="card-body">
+            <div class="card-top mono"><span>Unity · FMOD</span><span>2023</span></div>
+            <h3>Flappy Game</h3>
+            <p><span class="es">Game JamPlus 23/24, en solitario. Toda la música y los SFX salen de grabaciones de guitarra eléctrica, con audio adaptativo según el puntaje.</span><span class="en">Game JamPlus 23/24, solo. All the music and SFX come from electric guitar recordings, with audio that adapts to your score.</span></p>
+            <p class="role"><span class="es">Desarrollo, SFX, música e implementación dinámica</span><span class="en">Development, SFX, music and dynamic implementation</span></p>
+            <div class="links"><a href="https://driann.itch.io/flappy" target="_blank" rel="noopener">itch.io ↗</a></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <img class="thumb" src="../assets/bachaco.jpg" width="630" height="500" loading="lazy" alt="Bachaco the Game cover art">
+          <div class="card-body">
+            <div class="card-top mono"><span>Unity · Brackeys Jam</span><span>2023</span></div>
+            <h3>Bachaco the Game</h3>
+            <p><span class="es">Una hormiga recorre los túneles de la colonia para llevar comida al jardín de hongos. Hecho para la Brackeys Game Jam 2023.2 («Diving Deeper») con una artista 2D; los dos aprendimos Unity una semana antes.</span><span class="en">An ant explores the colony's tunnels to bring food to the fungus garden. Made for Brackeys Game Jam 2023.2 ("Diving Deeper") with a 2D artist; we both started learning Unity a week before.</span></p>
+            <p class="role"><span class="es">Programación, música e implementación dinámica</span><span class="en">Programming, music and dynamic implementation</span></p>
+            <div class="links"><a href="https://driann.itch.io/bachaco-the-game" target="_blank" rel="noopener">itch.io ↗</a></div>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <img class="thumb" src="../assets/face-the-music.jpg" width="1280" height="708" loading="lazy" alt="Face the Music cover art">
+          <div class="card-body">
+            <div class="card-top mono"><span>Godot · Rhythm / puzzle</span><span>2026</span></div>
+            <h3>Face the Music</h3>
+            <p><span class="es">Escuchá una secuencia y encontrá los cuatro fragmentos que la forman entre un montón de impostores enmascarados. Se juega mejor con auriculares.</span><span class="en">Listen to a sequence, then find the four fragments that make it up among a crowd of masked impostors. Best played with headphones.</span></p>
+            <p class="role"><span class="es">Música y SFX</span><span class="en">Music and SFX</span></p>
+            <div class="links"><a href="https://ferchu-ayanami.itch.io/face-the-music-mpvp-2026-prototipo" target="_blank" rel="noopener"><span class="es">Jugar en el navegador ↗</span><span class="en">Play in browser ↗</span></a></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience, tools and training -->
+  <section id="experience" class="band">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div>
+          <span class="mono kicker">02 — <span class="es">Experiencia</span><span class="en">Experience</span></span>
+          <h2><span class="es">Cómo trabajo en juegos</span><span class="en">How I work on games</span></h2>
+        </div>
+        <p><span class="es">Del diseño de los sonidos a dejarlos funcionando dentro del motor.</span><span class="en">From designing the sounds to getting them working inside the engine.</span></p>
+      </div>
+
+      <div class="about">
+        <div class="timeline">
+          <div class="job reveal">
+            <time class="mono"><span class="es">2021 — hoy</span><span class="en">2021 — present</span></time>
+            <h3><span class="es">Audio para videojuegos · Freelance y jams</span><span class="en">Game audio · Freelance & jams</span></h3>
+            <ul class="es">
+              <li>Más de 10 game jams: assets de audio, música e implementación con FMOD.</li>
+              <li>SFX diseñados e implementados en FMOD para un juego de carreras en Unity.</li>
+              <li>Lideré el audio de un proyecto: todos los efectos y la música.</li>
+              <li>Preproducción de audio para un juego cozy: lista de sonidos, tareas y convenciones.</li>
+            </ul>
+            <ul class="en">
+              <li>10+ game jams: audio assets, music and FMOD implementation.</li>
+              <li>Designed and implemented FMOD SFX for a racing game in Unity.</li>
+              <li>Led audio on a game project, owning all sound effects and music.</li>
+              <li>Audio pre-production for a cozy game: sound list, task tracking and naming conventions.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="panel reveal">
+          <span class="mono kicker"><span class="es">Formación</span><span class="en">Training</span></span>
+          <ul class="cert-list" style="margin-top:16px">
+            <li><b><span class="es">Audio para videojuegos: Técnicas de diseño sonoro</span><span class="en">Game Audio: Sound Design Techniques</span></b><span class="meta">Platzi · 2023 · 18 h</span></li>
+            <li><b><span class="es">Audio para videojuegos: Implementación</span><span class="en">Game Audio: Implementation</span></b><span class="meta">Platzi · 2022 · 13 h</span></li>
+            <li><b><span class="es">Audio para videojuegos: Fundamentos de diseño sonoro</span><span class="en">Game Audio: Sound Design Fundamentals</span></b><span class="meta">Platzi · 2022 · 9 h</span></li>
+            <li><b><span class="es">Música para videojuegos</span><span class="en">Music for Video Games</span></b><span class="meta">Platzi · 2023 · 7 h</span></li>
+            <li><b><span class="es">Programación Básica</span><span class="en">Programming Basics</span></b><span class="meta">Platzi · 2024 · 29 h</span></li>
+            <li><b>C#</b><span class="meta">SoloLearn · 2023</span></li>
+            <li><b>Global Game Jam 2024</b><span class="meta"><span class="es">Participación · sede Lara Game Jam</span><span class="en">Participant · Lara Game Jam site</span></span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-row">
+        <div class="panel reveal"><h4 class="mono"><span class="es">Implementación</span><span class="en">Implementation</span></h4><div class="tags"><span class="tag">FMOD Studio</span><span class="tag">Godot / GDScript</span><span class="tag"><span class="es">Unity / C# básico</span><span class="en">Unity / basic C#</span></span><span class="tag">Git / GitHub</span></div></div>
+        <div class="panel reveal"><h4 class="mono"><span class="es">Sonido y música</span><span class="en">Sound & music</span></h4><div class="tags"><span class="tag">Reaper</span><span class="tag">Ableton Live</span><span class="tag">Soundly</span><span class="tag">Spitfire LABS</span><span class="tag">iZotope RX</span></div></div>
+        <div class="panel reveal"><h4 class="mono"><span class="es">Especialidades</span><span class="en">Specialties</span></h4><div class="tags"><span class="tag"><span class="es">Audio adaptativo</span><span class="en">Adaptive audio</span></span><span class="tag">SFX</span><span class="tag"><span class="es">Composición</span><span class="en">Composition</span></span><span class="tag"><span class="es">Documentación de audio</span><span class="en">Audio documentation</span></span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="wrap reveal">
+      <span class="mono kicker"><span class="es">Contacto</span><span class="en">Contact</span></span>
+      <h2><span class="es">Hablemos de tu<br><span class="accent">próximo juego.</span></span><span class="en">Let's talk about<br><span class="accent">your next game.</span></span></h2>
+      <p><span class="es">Disponible para audio, música y proyectos en equipo.</span><span class="en">Available for audio, music and team projects.</span></p>
+      <a class="email-big" href="mailto:contact@driann.com">contact@driann.com</a>
+      <div class="copy-status" id="copy-status" aria-live="polite"></div>
+      <div class="actions">
+        <button class="btn" type="button" id="copy-email"><span class="es">Copiar email</span><span class="en">Copy email</span></button>
+        <a class="btn" href="https://www.linkedin.com/in/driann" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a class="btn" href="https://driann.itch.io" target="_blank" rel="noopener">itch.io ↗</a>
+        <a class="btn" href="../film-audio/"><span class="es">Ver audio para cine →</span><span class="en">See film audio →</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Adrián Betancourt</span>
+    <span class="mono">Game audio · Sound design · Music</span>
+  </div>
+</footer>
+
+<script src="../assets/site.js"></script>
+</body>
+</html>
