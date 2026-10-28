@@ -323,13 +323,21 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
 .more-jams { margin-top: 48px; }
 .more-jams h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
 .more-jams ul { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-.more-jams li { display: grid; grid-template-columns: 1.1fr 1fr 1.4fr; gap: 6px 20px; align-items: baseline; padding: 14px 4px; border-bottom: 1px solid var(--line); transition: background-color .25s; }
+.more-jams li {
+  display: grid; grid-template-columns: 1.2fr 1fr 1.5fr 48px; grid-template-areas: "name event role year";
+  gap: 4px 24px; align-items: baseline; padding: 14px 12px; border-bottom: 1px solid var(--line); border-radius: 8px;
+  transition: background-color .25s;
+}
 .more-jams li:hover { background: var(--surface); }
-.more-jams a { font-family: var(--font-main); font-weight: 600; font-size: 16px; color: var(--text); text-decoration: none; }
+.more-jams a { grid-area: name; font-family: var(--font-main); font-weight: 600; font-size: 16px; color: var(--text); text-decoration: none; }
 .more-jams a:hover { color: var(--accent-ink); }
 .more-jams .mono { color: var(--muted); font-size: 11px; }
-.more-jams li > span:last-child { color: var(--muted); font-size: 14px; }
-@media (max-width: 720px) { .more-jams li { grid-template-columns: 1fr; gap: 2px; } }
+.more-jams .jam-event { grid-area: event; }
+.more-jams .jam-role { grid-area: role; color: var(--text); font-size: 14px; }
+.more-jams .jam-year { grid-area: year; text-align: right; font-size: 12px; }
+@media (max-width: 720px) {
+  .more-jams li { grid-template-columns: 1fr auto; grid-template-areas: "name year" "event event" "role role"; gap: 2px 12px; padding: 14px 4px; }
+}
 /* Home: portrait in the About section */
 .portrait { margin: 0 0 28px; width: min(240px, 60%); padding: 6px; border-radius: 24px; background: var(--grad, linear-gradient(90deg, #ef4b50, #3fe6dd)); }
 .portrait img { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 18px; }
