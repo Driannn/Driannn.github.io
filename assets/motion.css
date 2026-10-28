@@ -72,14 +72,10 @@
 .btn.primary:hover::after { transform: translateX(120%); transition: transform .7s var(--ease-out); }
 .btn.primary:hover { box-shadow: 0 14px 28px -12px rgba(196, 52, 59, .6); }
 
-/* Videos: play button ripples, thumbnail eases in */
+/* Videos: thumbnail eases in; the play label nudges its triangle on hover */
 .video { transition: transform .4s var(--ease-out), box-shadow .4s; background-size: cover; }
-.video .play::before {
-  content: ""; position: absolute; inset: 0; border-radius: 50%; border: 2px solid var(--accent);
-  animation: ripple 2.2s var(--ease-out) infinite;
-}
-@keyframes ripple { from { transform: scale(1); opacity: .8; } to { transform: scale(1.7); opacity: 0; } }
-.video.loaded .play::before { display: none; }
+.video .play svg { transition: transform .3s var(--ease-spring); }
+.video:hover .play svg { transform: translateX(2px); }
 .hero-video:hover { transform: translateY(-4px); box-shadow: 0 40px 80px -30px rgba(10, 118, 114, .55); }
 
 /* Cards: pointer-follow spotlight, lift, image zoom */
