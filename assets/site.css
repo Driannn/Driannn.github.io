@@ -378,3 +378,9 @@ footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wr
   .about-teaser { grid-template-columns: 1fr; gap: 28px; }
   .about-teaser .portrait { width: 180px; }
 }
+/* Music: two-column section with a full-width card holding several players */
+.tracks.tracks-two { grid-template-columns: 1fr 1fr; }
+.track-wide { grid-column: 1 / -1; }
+.track .players { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+.track .players iframe { margin-top: 0; }
+@media (max-width: 720px) { .tracks.tracks-two, .track .players { grid-template-columns: 1fr; } }
