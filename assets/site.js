@@ -34,8 +34,12 @@
         window.open('https://www.youtube.com/watch?v=' + id, '_blank', 'noopener');
         return;
       }
+      // Only one video plays at a time: pause any that were started before
+      document.querySelectorAll('.video.loaded iframe').forEach(function (other) {
+        other.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      });
       var iframe = document.createElement('iframe');
-      iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
+      iframe.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0&enablejsapi=1';
       // YouTube refuses to play (error 153) when the embed sends no referrer
       iframe.referrerPolicy = 'strict-origin-when-cross-origin';
       iframe.title = el.getAttribute('aria-label') || 'YouTube video';
