@@ -12,6 +12,20 @@
   langButtons.forEach(function (b) { b.addEventListener('click', function () { setLang(b.dataset.setLang); }); });
   setLang(root.getAttribute('data-lang'));
 
+  // Theme toggle (the head script already applied the saved or system theme)
+  var themeBtn = document.querySelector('.theme-toggle');
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
+  function setTheme(theme, save) {
+    root.setAttribute('data-theme', theme);
+    if (themeBtn) themeBtn.setAttribute('aria-pressed', String(theme === 'dark'));
+    if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#0d1724' : '#f5fafa');
+    if (save) try { localStorage.setItem('theme', theme); } catch (e) {}
+  }
+  if (themeBtn) themeBtn.addEventListener('click', function () {
+    setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true);
+  });
+  setTheme(root.getAttribute('data-theme') || 'light', false);
+
   // Mobile menu
   var nav = document.getElementById('nav');
   var menuBtn = document.querySelector('.menu-btn');
@@ -77,9 +91,9 @@
   var status = document.getElementById('copy-status');
   var copyBtn = document.getElementById('copy-email');
   if (copyBtn) copyBtn.addEventListener('click', function () {
-    var es = root.getAttribute('data-lang') === 'es';
+    var copied = { es: 'Email copiado ✓', en: 'Email copied ✓', pt: 'E-mail copiado ✓' };
     navigator.clipboard.writeText('contact@driann.com').then(function () {
-      status.textContent = es ? 'Email copiado ✓' : 'Email copied ✓';
+      status.textContent = copied[root.getAttribute('data-lang')] || copied.en;
     }, function () {
       status.textContent = 'contact@driann.com';
     });

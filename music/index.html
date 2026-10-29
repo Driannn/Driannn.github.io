@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="color-scheme" content="light">
+<meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#f5fafa">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>Music — Adrián Betancourt</title>
@@ -20,17 +20,21 @@
   (function () {
     var lang;
     try { lang = localStorage.getItem('lang'); } catch (e) {}
-    if (lang !== 'es' && lang !== 'en') lang = /^es/i.test(navigator.language || '') ? 'es' : 'en';
+    if (lang !== 'es' && lang !== 'en' && lang !== 'pt') lang = /^(es|pt)/i.test(navigator.language || '') ? navigator.language.slice(0, 2).toLowerCase() : 'en';
     document.documentElement.setAttribute('data-lang', lang);
     document.documentElement.setAttribute('lang', lang);
+    var theme;
+    try { theme = localStorage.getItem('theme'); } catch (e) {}
+    if (theme !== 'light' && theme !== 'dark') theme = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', theme);
   })();
 </script>
-<link rel="stylesheet" href="../assets/site.css?v=20261029a">
-<link rel="stylesheet" href="../assets/motion.css?v=20261029a">
+<link rel="stylesheet" href="../assets/site.css?v=20261029d">
+<link rel="stylesheet" href="../assets/motion.css?v=20261029d">
 </head>
 <body>
 <script>document.documentElement.classList.add('js');</script>
-<a class="skip" href="#games"><span class="es">Saltar al contenido</span><span class="en">Skip to content</span></a>
+<a class="skip" href="#games"><span class="es">Saltar al contenido</span><span class="en">Skip to content</span><span class="pt">Pular para o conteúdo</span></a>
 
 <header class="site-header">
   <div class="wrap header-inner">
@@ -42,15 +46,20 @@
       <nav class="nav" id="nav" aria-label="Main">
         <div class="nav-pages">
           <a href="../game-audio/">Game audio</a>
-          <a href="../film-audio/"><span class="es">Audio para cine</span><span class="en">Film audio</span></a>
-          <a href="../music/" aria-current="page"><span class="es">Música</span><span class="en">Music</span></a>
-          <a href="../about/"><span class="es">Sobre mí</span><span class="en">About</span></a>
+          <a href="../film-audio/"><span class="es">Audio para cine</span><span class="en">Film audio</span><span class="pt">Áudio para cinema</span></a>
+          <a href="../music/" aria-current="page"><span class="es">Música</span><span class="en">Music</span><span class="pt">Música</span></a>
+          <a href="../about/"><span class="es">Sobre mí</span><span class="en">About</span><span class="pt">Sobre mim</span></a>
         </div>
-        <a class="nav-cta" href="#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="es">Contacto</span><span class="en">Contact</span></a>
+        <a class="nav-cta" href="#contact"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg><span class="es">Contacto</span><span class="en">Contact</span><span class="pt">Contato</span></a>
       </nav>
-      <div class="lang" role="group" aria-label="Language / Idioma">
+      <button class="theme-toggle" type="button" aria-pressed="false" aria-label="Dark mode / Modo oscuro / Modo escuro">
+        <span class="sun" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></span>
+        <span class="moon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span>
+      </button>
+      <div class="lang" role="group" aria-label="Language / Idioma / Língua">
         <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
         <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-set-lang="pt" aria-pressed="false">PT</button>
       </div>
       <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
@@ -62,16 +71,17 @@
   <div class="hero">
     <div class="wrap hero-grid">
       <div>
-        <a class="back" href="../">← <span class="es">Todo mi trabajo</span><span class="en">All my work</span></a>
+        <a class="back" href="../">← <span class="es">Todo mi trabajo</span><span class="en">All my work</span><span class="pt">Todo o meu trabalho</span></a>
         <div class="page-head" style="padding:20px 0 0">
           <div class="eyebrow mono">Soundtracks · Themes · Covers</div>
-          <h1><span class="es">Música</span><span class="en">Music</span><span class="accent">.</span></h1>
+          <h1><span class="es">Música</span><span class="en">Music</span><span class="pt">Música</span><span class="accent">.</span></h1>
           <p class="hero-lead">
             <span class="es">Música original para <strong>videojuegos, marcas y proyectos audiovisuales</strong>. Muchas de estas piezas nacieron en game jams de 48 horas a una semana.</span>
             <span class="en">Original music for <strong>games, brands and audiovisual projects</strong>. Many of these pieces were written during game jams lasting 48 hours to one week.</span>
+            <span class="pt">Música original para <strong>games, marcas e projetos audiovisuais</strong>. Muitas destas faixas nasceram em game jams de 48 horas a uma semana.</span>
           </p>
           <div class="actions">
-            <a class="btn primary" href="#games"><span class="es">Escuchar</span><span class="en">Listen</span> <span aria-hidden="true">↓</span></a>
+            <a class="btn primary" href="#games"><span class="es">Escuchar</span><span class="en">Listen</span><span class="pt">Ouvir</span> <span aria-hidden="true">↓</span></a>
             <a class="btn" href="https://soundcloud.com/driann-yea" target="_blank" rel="noopener">SoundCloud ↗</a>
           </div>
         </div>
@@ -88,56 +98,56 @@
     <div class="wrap">
       <div class="section-head reveal">
         <div>
-          <span class="mono kicker">01 — <span class="es">Videojuegos</span><span class="en">Games</span></span>
-          <h2><span class="es">Bandas sonoras para juegos</span><span class="en">Game soundtracks</span></h2>
+          <span class="mono kicker">01 — <span class="es">Videojuegos</span><span class="en">Games</span><span class="pt">Games</span></span>
+          <h2><span class="es">Bandas sonoras para juegos</span><span class="en">Game soundtracks</span><span class="pt">Trilhas sonoras para jogos</span></h2>
         </div>
-        <p><span class="es">Temas de menú, música durante el juego y loops.</span><span class="en">Menu themes, in-game music and loops.</span></p>
+        <p><span class="es">Temas de menú, música durante el juego y loops.</span><span class="en">Menu themes, in-game music and loops.</span><span class="pt">Temas de menu, música de gameplay e loops.</span></p>
       </div>
 
       <div class="tracks">
         <article class="track reveal">
           <div class="track-top mono"><span>GMTK Game Jam 2023</span><span>48 h</span></div>
           <h3>Royal Adventure</h3>
-          <p><span class="es">Tema del menú principal de <b>Royal Pain</b>, un juego con el tema «Roles Reversed». Código y arte de Bunny Trail Junction.</span><span class="en">Main menu theme for <b>Royal Pain</b>, a "Roles Reversed" jam game. Code and art by Bunny Trail Junction.</span></p>
+          <p><span class="es">Tema del menú principal de <b>Royal Pain</b>, un juego con el tema «Roles Reversed». Código y arte de Bunny Trail Junction.</span><span class="en">Main menu theme for <b>Royal Pain</b>, a "Roles Reversed" jam game. Code and art by Bunny Trail Junction.</span><span class="pt">Tema do menu principal de <b>Royal Pain</b>, um jogo com o tema «Roles Reversed». Código e arte de Bunny Trail Junction.</span></p>
           <iframe title="Royal Adventure" height="120" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/driann-yea/royal-adventure&color=%23ef4b50&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_artwork=true"></iframe>
-          <div class="links"><a href="https://bunnytrail.itch.io/royal-pain" target="_blank" rel="noopener"><span class="es">Jugar Royal Pain ↗</span><span class="en">Play Royal Pain ↗</span></a></div>
+          <div class="links"><a href="https://bunnytrail.itch.io/royal-pain" target="_blank" rel="noopener"><span class="es">Jugar Royal Pain ↗</span><span class="en">Play Royal Pain ↗</span><span class="pt">Jogar Royal Pain ↗</span></a></div>
         </article>
 
         <article class="track reveal">
           <div class="track-top mono"><span>GMTK Game Jam 2023</span><span>48 h</span></div>
           <h3>Royal Scape</h3>
-          <p><span class="es">Tema principal durante el juego de <b>Royal Pain</b>.</span><span class="en">In-game theme for <b>Royal Pain</b>.</span></p>
+          <p><span class="es">Tema principal durante el juego de <b>Royal Pain</b>.</span><span class="en">In-game theme for <b>Royal Pain</b>.</span><span class="pt">Tema principal de gameplay de <b>Royal Pain</b>.</span></p>
           <iframe title="Royal Scape" height="120" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/driann-yea/royal-scape&color=%23ef4b50&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_artwork=true"></iframe>
-          <div class="links"><a href="https://bunnytrail.itch.io/royal-pain" target="_blank" rel="noopener"><span class="es">Jugar Royal Pain ↗</span><span class="en">Play Royal Pain ↗</span></a></div>
+          <div class="links"><a href="https://bunnytrail.itch.io/royal-pain" target="_blank" rel="noopener"><span class="es">Jugar Royal Pain ↗</span><span class="en">Play Royal Pain ↗</span><span class="pt">Jogar Royal Pain ↗</span></a></div>
         </article>
 
         <article class="track reveal">
           <div class="track-top mono"><span>GMTK Game Jam 2023</span><span>48 h</span></div>
           <h3>Meat New People</h3>
-          <p><span class="es">Música para un juego de zombis donde los zombis son los protagonistas.</span><span class="en">Music for a zombie game where you play as the zombies.</span></p>
+          <p><span class="es">Música para un juego de zombis donde los zombis son los protagonistas.</span><span class="en">Music for a zombie game where you play as the zombies.</span><span class="pt">Música para um jogo de zumbis em que os zumbis são os protagonistas.</span></p>
           <iframe title="Meat New People" height="120" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/driann-yea/gmtk23-deadfriedly&color=%23ef4b50&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_artwork=true"></iframe>
-          <div class="links"><a href="https://driann.itch.io/meat-new-people" target="_blank" rel="noopener"><span class="es">Jugar Meat New People ↗</span><span class="en">Play Meat New People ↗</span></a></div>
+          <div class="links"><a href="https://driann.itch.io/meat-new-people" target="_blank" rel="noopener"><span class="es">Jugar Meat New People ↗</span><span class="en">Play Meat New People ↗</span><span class="pt">Jogar Meat New People ↗</span></a></div>
         </article>
 
         <article class="track reveal">
-          <div class="track-top mono"><span>Brackeys Game Jam 2023.2</span><span><span class="es">1 semana</span><span class="en">1 week</span></span></div>
+          <div class="track-top mono"><span>Brackeys Game Jam 2023.2</span><span><span class="es">1 semana</span><span class="en">1 week</span><span class="pt">1 semana</span></span></div>
           <h3>Bachaco The Game</h3>
-          <p><span class="es">Tema del menú principal. En este juego también hice la programación.</span><span class="en">Main menu theme. I also programmed this game.</span></p>
+          <p><span class="es">Tema del menú principal. En este juego también hice la programación.</span><span class="en">Main menu theme. I also programmed this game.</span><span class="pt">Tema do menu principal. Neste jogo também fiz a programação.</span></p>
           <iframe title="Bachaco The Game" height="120" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/driann-yea/bachaco-the-game&color=%23ef4b50&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_artwork=true"></iframe>
-          <div class="links"><a href="https://driann.itch.io/bachaco-the-game" target="_blank" rel="noopener"><span class="es">Jugar Bachaco ↗</span><span class="en">Play Bachaco ↗</span></a></div>
+          <div class="links"><a href="https://driann.itch.io/bachaco-the-game" target="_blank" rel="noopener"><span class="es">Jugar Bachaco ↗</span><span class="en">Play Bachaco ↗</span><span class="pt">Jogar Bachaco ↗</span></a></div>
         </article>
 
         <article class="track reveal">
           <div class="track-top mono"><span>Mini Jam 118</span><span>Loop</span></div>
           <h3>Meet me at Polaris B</h3>
-          <p><span class="es">Loop electrónico para un juego de la Mini Jam 118.</span><span class="en">Electronic loop for a Mini Jam 118 entry.</span></p>
+          <p><span class="es">Loop electrónico para un juego de la Mini Jam 118.</span><span class="en">Electronic loop for a Mini Jam 118 entry.</span><span class="pt">Loop eletrônico para um jogo da Mini Jam 118.</span></p>
           <iframe title="Meet me at Polaris B" height="120" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/driann-yea/meet-me-at-polaris-b&color=%23ef4b50&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_artwork=true"></iframe>
         </article>
 
         <article class="track reveal">
-          <div class="track-top mono"><span><span class="es">Música para juegos</span><span class="en">Game music</span></span><span>Loop</span></div>
+          <div class="track-top mono"><span><span class="es">Música para juegos</span><span class="en">Game music</span><span class="pt">Música para games</span></span><span>Loop</span></div>
           <h3>I believe!</h3>
-          <p><span class="es">Loop electrónico pensado para repetirse sin cortes durante el juego.</span><span class="en">Electronic loop built to repeat seamlessly during gameplay.</span></p>
+          <p><span class="es">Loop electrónico pensado para repetirse sin cortes durante el juego.</span><span class="en">Electronic loop built to repeat seamlessly during gameplay.</span><span class="pt">Loop eletrônico pensado para se repetir sem cortes durante o jogo.</span></p>
           <iframe title="I believe!" height="120" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/driann-yea/i-believe&color=%23ef4b50&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_artwork=true"></iframe>
         </article>
       </div>
@@ -150,23 +160,23 @@
       <div class="section-head reveal">
         <div>
           <span class="mono kicker">02 — Original</span>
-          <h2><span class="es">Temas y música original</span><span class="en">Themes and original music</span></h2>
+          <h2><span class="es">Temas y música original</span><span class="en">Themes and original music</span><span class="pt">Temas e música original</span></h2>
         </div>
-        <p><span class="es">Encargos para una productora y para la Universidad Audiovisual de Venezuela, y música que hago por diversión.</span><span class="en">Commissions for a production company and for the Audiovisual University of Venezuela, plus music I make for fun.</span></p>
+        <p><span class="es">Encargos para una productora y para la Universidad Audiovisual de Venezuela, y música que hago por diversión.</span><span class="en">Commissions for a production company and for the Audiovisual University of Venezuela, plus music I make for fun.</span><span class="pt">Trabalhos encomendados por uma produtora e pela Universidad Audiovisual de Venezuela, e música que faço por diversão.</span></p>
       </div>
 
       <div class="tracks tracks-two">
         <article class="track reveal">
-          <div class="track-top mono"><span><span class="es">Encargo</span><span class="en">Commission</span></span><span>World</span></div>
+          <div class="track-top mono"><span><span class="es">Encargo</span><span class="en">Commission</span><span class="pt">Encomenda</span></span><span>World</span></div>
           <h3>Margay</h3>
-          <p><span class="es">Tema principal para Margay, una productora audiovisual.</span><span class="en">Main theme for Margay, an audiovisual production company.</span></p>
+          <p><span class="es">Tema principal para Margay, una productora audiovisual.</span><span class="en">Main theme for Margay, an audiovisual production company.</span><span class="pt">Tema principal para a Margay, uma produtora audiovisual.</span></p>
           <iframe title="Margay" height="120" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/driann-yea/margay&color=%23ef4b50&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_artwork=true"></iframe>
         </article>
 
         <article class="track track-wide reveal">
-          <div class="track-top mono"><span><span class="es">Proyectos personales</span><span class="en">Personal projects</span></span><span><span class="es">4 pistas</span><span class="en">4 tracks</span></span></div>
-          <h3><span class="es">Por diversión</span><span class="en">Just for fun</span></h3>
-          <p><span class="es">Piezas que compuse sin encargo de por medio, por el gusto de explorar.</span><span class="en">Pieces I wrote with no brief, just to explore.</span></p>
+          <div class="track-top mono"><span><span class="es">Proyectos personales</span><span class="en">Personal projects</span><span class="pt">Projetos pessoais</span></span><span><span class="es">4 pistas</span><span class="en">4 tracks</span><span class="pt">4 faixas</span></span></div>
+          <h3><span class="es">Por diversión</span><span class="en">Just for fun</span><span class="pt">Por diversão</span></h3>
+          <p><span class="es">Piezas que compuse sin encargo de por medio, por el gusto de explorar.</span><span class="en">Pieces I wrote with no brief, just to explore.</span><span class="pt">Peças que compus sem encomenda, pelo prazer de explorar.</span></p>
           <div class="players">
             <iframe title="Stardance revolution" height="120" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/driann-yea/stardance-revolution&color=%23ef4b50&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_artwork=true"></iframe>
             <iframe title="Communication" height="120" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/driann-yea/communication&color=%23ef4b50&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_artwork=true"></iframe>
@@ -176,9 +186,9 @@
         </article>
 
         <article class="track reveal">
-          <div class="track-top mono"><span><span class="es">Encargo · Instagram</span><span class="en">Commission · Instagram</span></span><span>Electronic</span></div>
-          <h3><span class="es">Música para reels</span><span class="en">Music for reels</span></h3>
-          <p><span class="es">Dos piezas cortas para reels de Instagram de la <b>Universidad Audiovisual de Venezuela</b>.</span><span class="en">Two short pieces for Instagram reels by the <b>Audiovisual University of Venezuela</b>.</span></p>
+          <div class="track-top mono"><span><span class="es">Encargo · Instagram</span><span class="en">Commission · Instagram</span><span class="pt">Encomenda · Instagram</span></span><span>Electronic</span></div>
+          <h3><span class="es">Música para reels</span><span class="en">Music for reels</span><span class="pt">Música para reels</span></h3>
+          <p><span class="es">Dos piezas cortas para reels de Instagram de la <b>Universidad Audiovisual de Venezuela</b>.</span><span class="en">Two short pieces for Instagram reels by the <b>Audiovisual University of Venezuela</b>.</span><span class="pt">Duas peças curtas para reels do Instagram da <b>Universidad Audiovisual de Venezuela</b>.</span></p>
           <iframe title="Documentary intro on alien wildlife" height="120" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/driann-yea/insert-name-for&color=%23ef4b50&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_artwork=true"></iframe>
           <iframe title="Breaking news weather forecast on Mars" height="120" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/driann-yea/breaking-news-weather-forecast-on-mars&color=%23ef4b50&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_artwork=true"></iframe>
         </article>
@@ -192,9 +202,9 @@
       <div class="section-head reveal">
         <div>
           <span class="mono kicker">03 — Covers</span>
-          <h2><span class="es">Covers y arreglos</span><span class="en">Covers and arrangements</span></h2>
+          <h2><span class="es">Covers y arreglos</span><span class="en">Covers and arrangements</span><span class="pt">Covers e arranjos</span></h2>
         </div>
-        <p><span class="es">Versiones 8-bit, orquestales e instrumentales de canciones que me gustan. Sin fines de lucro.</span><span class="en">8-bit, orchestral and instrumental versions of songs I love. Not monetized.</span></p>
+        <p><span class="es">Versiones 8-bit, orquestales e instrumentales de canciones que me gustan. Sin fines de lucro.</span><span class="en">8-bit, orchestral and instrumental versions of songs I love. Not monetized.</span><span class="pt">Versões 8-bit, orquestrais e instrumentais de músicas de que gosto. Sem fins lucrativos.</span></p>
       </div>
       <div class="soundcloud reveal" style="margin-top:0">
         <iframe title="driann — Covers" height="350" loading="lazy" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/driann-yea/sets/covers&color=%23ef4b50&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false"></iframe>
@@ -205,13 +215,13 @@
   <!-- Contact -->
   <section id="contact" class="band contact">
     <div class="wrap reveal">
-      <span class="mono kicker"><span class="es">Contacto</span><span class="en">Contact</span></span>
-      <h2><span class="es">¿Necesitas música<br><span class="accent">para tu proyecto?</span></span><span class="en">Need music<br><span class="accent">for your project?</span></span></h2>
-      <p><span class="es">Disponible para bandas sonoras, temas de marca y música para audiovisual.</span><span class="en">Available for soundtracks, brand themes and music for film and video.</span></p>
+      <span class="mono kicker"><span class="es">Contacto</span><span class="en">Contact</span><span class="pt">Contato</span></span>
+      <h2><span class="es">¿Necesitas música<br><span class="accent">para tu proyecto?</span></span><span class="en">Need music<br><span class="accent">for your project?</span></span><span class="pt">Precisa de música<br><span class="accent">para o seu projeto?</span></span></h2>
+      <p><span class="es">Disponible para bandas sonoras, temas de marca y música para audiovisual.</span><span class="en">Available for soundtracks, brand themes and music for film and video.</span><span class="pt">Disponível para trilhas sonoras, temas de marca e música para audiovisual.</span></p>
       <a class="email-big" href="mailto:contact@driann.com">contact@driann.com</a>
       <div class="copy-status" id="copy-status" aria-live="polite"></div>
       <div class="actions">
-        <button class="btn" type="button" id="copy-email"><span class="es">Copiar email</span><span class="en">Copy email</span></button>
+        <button class="btn" type="button" id="copy-email"><span class="es">Copiar email</span><span class="en">Copy email</span><span class="pt">Copiar e-mail</span></button>
         <a class="btn" href="https://www.linkedin.com/in/driann" target="_blank" rel="noopener">LinkedIn ↗</a>
         <a class="btn" href="https://driann.itch.io" target="_blank" rel="noopener">itch.io ↗</a>
         <a class="btn" href="https://soundcloud.com/driann-yea" target="_blank" rel="noopener">SoundCloud ↗</a>
@@ -227,7 +237,7 @@
   </div>
 </footer>
 
-<script src="../assets/site.js?v=20261029a"></script>
-<script src="../assets/motion.js?v=20261029a"></script>
+<script src="../assets/site.js?v=20261029d"></script>
+<script src="../assets/motion.js?v=20261029d"></script>
 </body>
 </html>
