@@ -26,7 +26,8 @@
   // Click-to-load YouTube (keeps the page light until a video is played)
   document.querySelectorAll('[data-yt]').forEach(function (el) {
     var id = el.dataset.yt;
-    el.style.backgroundImage = 'url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)';
+    // A video with its own poster image keeps it instead of YouTube's thumbnail
+    if (!el.querySelector('img')) el.style.backgroundImage = 'url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)';
     el.addEventListener('click', function () {
       if (el.classList.contains('loaded')) return;
       // Opened as a local file there is no origin, so YouTube rejects the embed; open it on YouTube instead
