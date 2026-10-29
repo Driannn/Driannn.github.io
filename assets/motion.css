@@ -48,8 +48,8 @@
 @keyframes drift-b { to { transform: translate(-100px, -60px) scale(1.1); } }
 
 /* Wave bars near the pointer light up (motion.js adds .hot) */
-.wave i { transition: filter .4s; }
-.wave i.hot { filter: hue-rotate(160deg) saturate(1.6); }
+.wave i { transition: background .4s; }
+.wave i.hot { background: linear-gradient(to top, var(--accent), transparent); }
 
 /* Eyebrow dot breathes */
 .eyebrow::before { animation: breathe 2.6s ease-in-out infinite; }
