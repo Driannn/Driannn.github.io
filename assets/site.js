@@ -18,7 +18,7 @@
   function setTheme(theme, save) {
     root.setAttribute('data-theme', theme);
     if (themeBtn) themeBtn.setAttribute('aria-pressed', String(theme === 'dark'));
-    if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#0d1724' : '#f5fafa');
+    if (themeMeta) themeMeta.setAttribute('content', theme === 'dark' ? '#070d15' : '#ebf2f2');
     if (save) try { localStorage.setItem('theme', theme); } catch (e) {}
   }
   if (themeBtn) themeBtn.addEventListener('click', function () {
